@@ -20,6 +20,14 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── src/
 │   └── pages/
 │       └── index.astro
+│       └── careers.astro
+│       └── online/
+│           └── podcast.astro
+│           └── talks.astro
+│       └── projects/
+│           └── aviasales.astro
+│           └── bfd.astro
+│           └── roblox.astro
 └── package.json
 ```
 
