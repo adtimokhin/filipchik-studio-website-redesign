@@ -1,0 +1,45 @@
+
+---
+import "../styles/grids.css"
+import "../styles/vertical_spacings.css"
+import svgReference from '../../public/logo_alt.svg'; // svgReference === '/src/image.svg'
+---
+
+<footer class="bg-text w-full text-background px-10 in_element">
+
+    <div class="project-grid-no-padding gap-in_element">
+        <img src={svgReference.src} alt="Filipchik Studios Logo" draggable="false" class="col-span-1 desktop:col-start-3 tablet:col-start-2 phone:col-start-1"/>
+        <p class="row-start-2 desktop:col-start-2 phone:col-start-1 text-center text-based-link">КАРЬЕРА</p>
+        <p class="row-start-2 desktop:col-start-4 tablet:col-start-3 phone:col-start-2 text-center text-based-link">МЫ ОНЛАЙН</p>
+    </div>
+
+   
+    
+    <!-- Social Media Links -->
+    <h3 class="header-4 top-in_element">Контакты</h3>
+    <hr class="border-t-1 border-background">
+     <div class="project-grid-no-padding body-header gap-in_element">
+     <a href="dkdkdk" class="body text-center">INSTAGRAM</a>
+     <a href="dkdkdk" class="body text-center">TELEGRAM</a>
+     <a href="dkdkdk" class="body text-center">YOUTUBE</a>
+     <a href="dkdkdk" class="body text-center">TWITTER</a>
+     <a href="dkdkdk" class="body text-center">MAIL</a>
+     <a href="dkdkdk" class="body text-center">FACEBOOK</a>
+     <a href="dkdkdk" class="body text-center">VK</a>
+     <a href="dkdkdk" class="body text-center">WHATSAPP</a>
+     <a href="dkdkdk" class="body text-center">LINKEDIN</a>
+    </div>
+    <hr class="border-t-1 border-background">
+
+    <div class="w-full project-grid-no-padding text-center footer-small-text top-in_element">
+        <p class="desktop:col-start-2 order-1">УСЛОВИЯ ПОЛЬЗОВАНИЯ САЙТОМ</p>
+        <div class="phone:col-span-2 phone:items-center phone:order-last tablet:order-2 tablet:col-span-1">
+            <p>@2023-2024</p>
+            <p>FILIPCHIK STUDIOS LLC</p>
+            </div>
+        <p class="order-3">ПОЛИТИКА ОБРАБОТКИ ДАННЫХ</p>
+    </div>
+    <div class="w-full flex flex-col items-center justify-center footer-small-text top-in_element">
+        <a href="https://adtimokhin.me" target="_blank" class="self-center">WEBSITE BY @<span class="underline">ADTIMOKHIN</span></a>
+    </div>
+</footer>

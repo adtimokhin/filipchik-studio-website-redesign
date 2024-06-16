@@ -12,6 +12,14 @@ export default {
 				main: "#0B73FD",
 				accent: "#F77200",
 				text_dimmed: "rgba(77,77,77,0.5)"
+			},
+
+			screens:
+			{
+				// Breakpoints for the project
+				phone:"0px", // Default breakpoint
+				tablet:"768px",
+				desktop:"1280px"
 			}
 		},
 	},

@@ -1,0 +1,221 @@
+/*
+ * This file contains vertical spacings defined by the porject design file
+ *
+ * Names of the space variables is taken from the Figma file.
+ */
+
+
+/* 
+* Note: often you'll see that I repeat the same values in the classes
+* for different breakpoints. It is done on purpose to make it easier to debug 
+* in the future 
+*/
+
+
+/* 
+ * Used to separate header with
+ * text or other context
+ */
+.body-header
+ {
+    @apply py-2 /* This is equal to 8px, not 7px like the design document calls for*/
+ }
+
+
+/* Used to separate a large header
+ * with the main page content
+ */
+ .page_tilte-content
+{
+   @apply desktop:py-[100px] tablet:py-[100px] py-[65px] 
+}
+
+
+/* Used to separate elements
+ * in a main section of the page
+ */
+.elements
+{
+   @apply desktop:py-[50px] tablet:py-[50px] py-[45px] 
+}
+
+
+/* Used to separate items
+ * inside a single section 
+ */
+.in_element
+{
+   @apply desktop:py-[40px] tablet:py-[20px] phone:py-[37px]
+}
+
+
+/* Used to separate items inside
+ * a section that is repsonsible
+ * for some action 
+ */
+.action-items
+{
+   @apply desktop:py-[30px] tablet:py-[15px] phone:py-[30px]
+}
+
+
+/* Used to separate to 
+ * separate sections on
+ * the home page 
+ */
+.sections
+{
+   @apply desktop:py-[120px] tablet:py-[120px] phone:py-[120px]
+}
+
+
+/* Used to separate footer 
+ * from the main part of the
+ * page 
+ */
+.footer-spaced
+{
+   @apply desktop:pt-[200px] tablet:pt-[200px] phone:pt-[130px]
+}
+
+
+/* TOP */
+
+/* 
+ * Used to separate header with
+ * text or other context
+ */
+ .top-body-header
+ {
+    @apply pt-2 /* This is equal to 8px, not 7px like the design document calls for*/
+ }
+
+ 
+/* Used to separate a large header
+ * with the main page content
+ */
+ .top-page_tilte-content
+{
+   @apply desktop:pt-[100px] tablet:pt-[100px] pt-[65px] 
+}
+
+
+/* Used to separate elements
+ * in a main section of the page
+ */
+.top-elements
+{
+   @apply desktop:pt-[50px] tablet:pt-[50px] pt-[45px] 
+}
+
+
+/* Used to separate items
+ * inside a single section 
+ */
+.top-in_element
+{
+   @apply desktop:pt-[40px] tablet:pt-[20px] phone:pt-[37px]
+}
+
+
+/* Used to separate items inside
+ * a section that is repsonsible
+ * for some action 
+ */
+.top-action-items
+{
+   @apply desktop:pt-[30px] tablet:pt-[15px] phone:pt-[30px]
+}
+
+
+/* Used to separate to 
+ * separate sections on
+ * the home page 
+ */
+.top-sections
+{
+   @apply desktop:pt-[120px] tablet:pt-[120px] phone:pt-[120px]
+}
+
+
+/* Used to separate footer 
+ * from the main part of the
+ * page 
+ */
+.top-footer-spaced
+{
+   @apply desktop:pt-[200px] tablet:pt-[200px] phone:pt-[130px]
+}
+
+/* GAP */
+
+/* 
+ * Used to separate header with
+ * text or other context
+ */
+ .gap-body-header
+ {
+    @apply gap-y-2 /* This is equal to 8px, not 7px like the design document calls for*/
+ }
+
+ 
+/* Used to separate a large header
+ * with the main page content
+ */
+ .gap-page_tilte-content
+{
+   @apply desktop:gap-y-[100px] tablet:gap-y-[100px] gap-y-[65px] 
+}
+
+
+/* Used to separate elements
+ * in a main section of the page
+ */
+.gap-elements
+{
+   @apply desktop:gap-y-[50px] tablet:gap-y-[50px] gap-y-[45px] 
+}
+
+
+/* Used to separate items
+ * inside a single section 
+ */
+.gap-in_element
+{
+   @apply desktop:gap-y-[40px] tablet:gap-y-[20px] phone:gap-y-[37px]
+}
+
+
+/* Used to separate items inside
+ * a section that is repsonsible
+ * for some action 
+ */
+.gap-action-items
+{
+   @apply desktop:gap-y-[30px] tablet:gap-y-[15px] phone:gap-y-[30px]
+}
+
+
+/* Used to separate to 
+ * separate sections on
+ * the home page 
+ */
+.gap-sections
+{
+   @apply desktop:gap-y-[120px] tablet:gap-y-[120px] phone:gap-y-[120px]
+}
+
+
+/* Used to separate footer 
+ * from the main part of the
+ * page 
+ */
+.gap-footer-spaced
+{
+   @apply desktop:pt-[200px] tablet:pt-[200px] phone:pt-[130px]
+}
+
+/* TODO: GO over the code and delete all unused classes, 
+ * or move all of these classes to Tailiwind configs. Maybe it handles the 
+ * deletion of unused classes for production
+ */
