@@ -1,0 +1,12 @@
+/* 
+ *   Registering SF Pro font for the project
+ */
+@font-face
+{
+    font-family: 'SF-Pro';
+    src: url('/fonts/SF-Pro.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
