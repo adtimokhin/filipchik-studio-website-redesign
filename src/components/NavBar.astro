@@ -1,0 +1,23 @@
+---
+import svgReference from '../../public/logo.svg'; // svgReference === '/src/logo_alt.svg'
+---
+
+<!-- TODO: Add correct horizontal spacing -->
+<nav class="w-full h-fit mt-8 flex flex-1 justify-between items-center px-10">
+
+    <a href="/">
+        <img src={svgReference.src} alt="Filipchik Studios Logo" draggable="false" class="desktop:w-52 tablet:w-52 phone:w-36"/>
+    </a>
+
+    <!-- TODO: Add a burger menu for phone screens -->
+    <div class="flex justify-end w-fit gap-x-2 nav-link text-text items-center">
+        <a href="/careers">КАРЬЕРА</a>
+        <!-- Dot -->
+        <span class="h-[5px] w-[5px] rounded-full bg-text"/>
+        <a href="/online/talks">МЫ ОНЛАЙН</a>
+        <!-- Dot -->
+        <span class="h-[5px] w-[5px] rounded-full bg-text"/>
+        <a href="#contact">СВЯЗАТЬСЯ</a>
+    </div>
+
+</nav>
