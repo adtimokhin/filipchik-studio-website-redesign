@@ -1,6 +1,6 @@
 ---
 import Link from "./Link.astro"
-const {jobTitle, summaryPoints, summaryFull, respondLink, vacancySummaryLink} = Astro.props
+const {jobTitle, summaryPoints, summaryFull, links} = Astro.props
 ---
 
 <div class="w-full h-fit project-grid-no-padding items-center gap-in_element">
@@ -13,8 +13,9 @@ const {jobTitle, summaryPoints, summaryFull, respondLink, vacancySummaryLink} = 
         </ul>
     </div>
     <div class="desktop:col-span-2 tablet:col-span-1 phone:col-span-2 h-fit flex flex-col gap-y-4 order-last tablet:order-2 desktop:order-2">
-        <Link dest={respondLink} text="ОТКЛИКНУТЬСЯ" isPrimary={true}/>
-        <Link dest={vacancySummaryLink} text="ОПИСАНИЕ ВАКАНСИИ" isPrimary={true}/>
+        {
+            links.map(link => <Link dest={link.link} text={link.text} isPrimary={true}/> )
+        }
     </div>
     <div class="col-span-3 order-3">
         <h3 class="header-4">Описание</h3>

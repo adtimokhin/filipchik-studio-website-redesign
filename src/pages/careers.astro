@@ -1,5 +1,5 @@
 ---
-import CareersItem from "../components/CareersItem.astro";
+import ListItem from "../components/ListItem.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import "../styles/grids.css"
 import "../styles/vertical_spacings.css"
@@ -12,13 +12,44 @@ import "../styles/vertical_spacings.css"
         <h1 class="header-2">ВАКАНСИИ</h1>
 
         <!-- Main Content -->
-        
         <ul class="w-fit h-fit desktop:space-y-[50px] tablet:space-y-[50px] space-y-[45px]">
-            <CareersItem jobTitle="Talent Hunter" summaryPoints={["МОСКВА, ОНЛАЙН","ОПЫТ 3-5 лет","70-130К"]} summaryFull="Талантливым людям нравится работать с талантливыми людьми, поэтому мы ищем искателя талантов. Ключевые компетенции: подбирать специалистов под неординарные задачи и интеграировать их в команду." respondLink="/not_specified" vacancySummaryLink="/not_specified"/>
+            <ListItem jobTitle="Talent Hunter" summaryPoints={["МОСКВА, ОНЛАЙН","ОПЫТ 3-5 лет","70-130К"]} summaryFull="Талантливым людям нравится работать с талантливыми людьми, поэтому мы ищем искателя талантов. Ключевые компетенции: подбирать специалистов под неординарные задачи и интеграировать их в команду." 
+            links={
+                [{
+                    text:"ОТКЛИКНУТЬСЯ",
+                    link:"/not_specified"
+                },
+                {
+                    text:"ОПИСАНИЕ ВАКАНСИИ",
+                    link:"/not_specified"  
+                }
+            ]
+            }
+            />
             <hr class="border-t-1 border-text px-10">
-            <CareersItem jobTitle="Проектный Менеджер" summaryPoints={["МОСКВА, ОНЛАЙН","ОПЫТ 5+ лет","150-200К"]} summaryFull="Разработка метавселенной требует системности и грамотного управления многопрофильной командой специалистов. Ключевые компетенции: планирование проекта, управление командой в рамках проекта, работа и общение с клиентом." respondLink="/not_specified" vacancySummaryLink="/not_specified"/>
+            <ListItem jobTitle="Проектный Менеджер" summaryPoints={["МОСКВА, ОНЛАЙН","ОПЫТ 5+ лет","150-200К"]} summaryFull="Разработка метавселенной требует системности и грамотного управления многопрофильной командой специалистов. Ключевые компетенции: планирование проекта, управление командой в рамках проекта, работа и общение с клиентом." links={
+                [{
+                    text:"ОТКЛИКНУТЬСЯ",
+                    link:"/not_specified"
+                },
+                {
+                    text:"ОПИСАНИЕ ВАКАНСИИ",
+                    link:"/not_specified"  
+                }
+            ]
+            }/>
             <hr class="border-t-1 border-text px-10">
-            <CareersItem jobTitle="Разработчик на Lua / Roblox" summaryPoints={["ОНЛАЙН","MIDDLE","150-250К"]} summaryFull="Ищем специалиста с портфолио коммерческих проектов в Roblox и опытом управления командой (2-5 человек) на IT проектах. Ключевая компетенция: разработка игр и программирование плейсов" respondLink="/not_specified" vacancySummaryLink="/not_specified"/>
+            <ListItem jobTitle="Разработчик на Lua / Roblox" summaryPoints={["ОНЛАЙН","MIDDLE","150-250К"]} summaryFull="Ищем специалиста с портфолио коммерческих проектов в Roblox и опытом управления командой (2-5 человек) на IT проектах. Ключевая компетенция: разработка игр и программирование плейсов" links={
+                [{
+                    text:"ОТКЛИКНУТЬСЯ",
+                    link:"/not_specified"
+                },
+                {
+                    text:"ОПИСАНИЕ ВАКАНСИИ",
+                    link:"/not_specified"  
+                }
+            ]
+            }/>
         </ul>
         
     </main>
