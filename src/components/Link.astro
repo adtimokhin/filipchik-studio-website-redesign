@@ -1,0 +1,14 @@
+---
+import svgReference from '../../public/icons/direct_arrow.svg';
+const {dest, text, isPrimary} = Astro.props
+---
+<!-- TODO: Make the Link change appereance based on whether it is prime or not -->
+
+<a href={dest} class="nav-link bg-accent text-white rounded-full px-5 py-3 flex gap-3">
+
+    <p>{text}</p>
+    <!-- For now we have a fixed icon -->
+    <!-- TODO: Make icon change on the parameter passed -->
+    <img src={svgReference.src} alt="move on the page arrow" class="w-4"/>
+    
+</a>

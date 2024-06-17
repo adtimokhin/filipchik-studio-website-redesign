@@ -1,5 +1,6 @@
 ---
 import svgReference from '../../public/logo.svg'; // svgReference === '/src/logo_alt.svg'
+import Link from './Link.astro';
 ---
 
 <!-- TODO: Add correct horizontal spacing -->
@@ -17,7 +18,7 @@ import svgReference from '../../public/logo.svg'; // svgReference === '/src/logo
         <a href="/online/talks">МЫ ОНЛАЙН</a>
         <!-- Dot -->
         <span class="h-[5px] w-[5px] rounded-full bg-text"/>
-        <a href="#contact">СВЯЗАТЬСЯ</a>
+        <Link dest="#contact" text="СВЯЗАТЬСЯ" isPrimary={true}/>
     </div>
 
 </nav>
