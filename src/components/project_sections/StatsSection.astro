@@ -1,0 +1,19 @@
+---
+// stats is an array of identical objects with the following
+// Structure: 
+// {
+//  header: string,
+//  description: string
+// }
+// There must be three such objects in this array
+const {stats} = Astro.props
+---
+
+<section class="w-full h-fit project-grid text-text items-center gap-in_element body">
+    <p class="text-accent header-2">{stats[0].header}</p>
+    <p class="tablet:col-span-2 phone:col-span-1 h-fit">{stats[0].description}</p>
+    <p class="text-accent header-2 desktop:col-start-3">{stats[1].header}</p>
+    <p class="tablet:col-span-2 phone:col-span-1  h-fit">{stats[1].description}</p>
+    <p class="text-accent header-2">{stats[2].header}</p>
+    <p class="tablet:col-span-2 phone:col-span-1 h-fit">{stats[2].description}</p>
+</section>

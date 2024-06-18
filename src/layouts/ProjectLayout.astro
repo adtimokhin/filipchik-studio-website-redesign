@@ -1,0 +1,20 @@
+---
+import PreviewSection from "../components/project_sections/PreviewSection.astro";
+import MainLayout from "./MainLayout.astro";
+const {title, projectTitle, summaryPoints} = Astro.props
+---
+
+<MainLayout title={title}>
+	<main class="footer-spaced">
+        
+		<PreviewSection title={projectTitle} summaryPoints={summaryPoints}/>
+
+		<div class="w-full gap-elements flex flex-col">
+            <!-- 
+                Add sections from components/project_sections 
+                in a project page to fill the page with content 
+            -->
+            <slot/>
+		</div>
+	</main>
+</MainLayout>

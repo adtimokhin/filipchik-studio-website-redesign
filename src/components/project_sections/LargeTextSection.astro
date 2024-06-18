@@ -1,0 +1,10 @@
+---
+// text must be a string
+const {text} = Astro.props
+---
+<section class="w-full  project-grid text-text items-center gap-in_element">
+    <h2 class="header-3 desktop:col-span-2 tablet:col-span-3 phone:col-span-2 h-fit">Что представляет из себя пространство?</h2>
+    <p class="desktop:col-span-3 tablet:col-span-3 phone:col-span-2 body h-fit">
+        {text}
+    </p>
+</section>
