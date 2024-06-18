@@ -75,7 +75,7 @@
  */
 .footer-spaced
 {
-   @apply desktop:py-[200px] tablet:py-[200px] phone:py-[130px]
+   @apply desktop:pb-[200px] tablet:pb-[200px] phone:pb-[130px]
 }
 
 

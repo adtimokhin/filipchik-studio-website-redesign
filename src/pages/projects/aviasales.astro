@@ -1,7 +1,56 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import previewReference from "../../../public/projects/aviasales/avisales_preview.png"
+import "../../styles/grids.css"
+import "../../styles/vertical_spacings.css"
+import Image from "astro/components/Image.astro";
 ---
 
 <MainLayout title="Aviasales">
-	<p>Aviasales</p>
+	<main class="footer-spaced">
+		<section class="w-screen h-screen bg-slate-800 relative -z-10">
+			<Image src={previewReference} alt="Avisales preview" class="w-full h-full absolute bottom-0 -z-10"/>
+			<!-- <img src={previewReference.src} alt="Avisales preview" /> -->
+			<div class="w-full px-10 absolute bottom-0 my-10 h-fit">
+					<h1 class="header-2 text-background w-10/12">ВЕЧЕРИНКА AVIASALES</h1>
+					<hr class="border-t-1 text-background top-body-header">
+					<div class="w-full project-grid-no-padding text-background body text-left top-body-header gap-in_element">
+						<h2 class="header-4">ОПИСАНИЕ</h2>
+						<p class="desktop:col-start-3 tablet:col-start-2 phone:col-start-2">создание мемов</p>
+						<p class="desktop:col-start-4 tablet:col-start-3 phone:col-start-2">создание виртуальных пространств для HR</p>
+						<p class="desktop:col-start-5 tablet:col-start-2 phone:col-start-2">создание 3D-моделей</p>
+					</div>
+			</div>
+		</section>
+		<div class="w-full gap-elements flex flex-col">
+			<section class="w-full h-screen desktop:rounded-t-[63px] tablet:rounded-t-[40px] phone:rounded-t-[34px] bg-main project-grid text-white items-center">
+				<h2 class="header-3 desktop:col-span-2 tablet:col-span-1 phone:col-span-2 h-fit">Цели и Задачи</h2>
+				<div class="desktop:col-span-3 tablet:col-span-2 phone:col-span-2 body h-fit">
+					<p class="w-full">Цель пространства – проведение закрытых корпоративных мероприятий, продвижение HR бренда компании, а также размещение эксклюзивного контента для пользователей программы лояльности Aviasales. На площадке можно проводить лекции, вечеринки и др. мероприятия.</p>
+					<div class="w-full bg-accent top-in_element">IMAGES</div>
+					<p class="w-full top-in_element">Каждая компания с чего-то начинала и эта метавселенная – начало компании Filipchik Studios. Речь о площадке, созданной в качестве MVP для компании Авиасейлс на платформе Spatial.io. Fun-проект выполнен в стиле вечеринки главного маскота бренда – Самолёши.</p>
+				</div>
+			</section>
+			<section class="w-full h-fit project-grid text-text items-center gap-in_element">
+				<p class="text-accent header-2">50</p>
+				<p class="tablet:col-span-2 phone:col-span-1 h-fit">3D-моделей, картин и др.<br/>артефактов, отражающих ценности и дух компании</p>
+				<p class="text-accent header-2 desktop:col-start-3">30+</p>
+				<p class="tablet:col-span-2 phone:col-span-1  h-fit">мемов и отсылок к компании, её истории и корпоративной культуре</p>
+				<p class="text-accent header-2">5</p>
+				<p class="tablet:col-span-2 phone:col-span-1 h-fit">пространств для общения, лекций и размещения различного контента</p>
+			</section>
+			<section class="w-full project-grid gap-in_element">
+				<div class="desktop:col-span-2 tablet:col-span-3 phone:col-span-2 h-[300px] bg-lime-500">IMAGE 1</div>
+				<div class="desktop:col-span-3 tablet:col-span-3 phone:col-span-2 h-[300px] bg-red-500">IMAGE 2</div>
+			</section>
+			<section class="w-full  project-grid text-text items-center gap-in_element">
+				<h2 class="header-3 desktop:col-span-2 tablet:col-span-3 phone:col-span-2 h-fit">Что представляет из себя пространство?</h2>
+				<p class="desktop:col-span-3 tablet:col-span-3 phone:col-span-2 body h-fit">
+					Площадка оформлена в стиле головного офиса компании, который располагается на Пхукете. Флора и фауна Тайланда в сочетании с необычной архитектурой создает ощущение, которое обычно испытывает во время летнего отдыха где-то на берегу моря. В центре располагается бассейн с шезлонгами, “друзьями” компании и большим бассейном с надписью ДНО на дне (такой бассейн реально существует).
+					На стенах здания висят уникальные мемы, которые были созданы для компании и которые отражают ее дух. Также посетителей есть возможность познакомиться с продуктами Aviasales. Например, с программой лояльности “Ещё” и Travelpayouts. В глубине здания можно встретить Самолёшу за пультом DJ, услышать мощный ремикс джингла компании, а также посетить лекционный зал.
+					Будем честны – компания никогда не пользовалась этим пространством. Но мы знаем, что ещё не вечер, и они влетят в метавселенные вместе с Filipchik Studios.
+				</p>
+			</section>
+		</div>
+	</main>
 </MainLayout>
