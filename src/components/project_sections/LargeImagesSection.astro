@@ -1,4 +1,14 @@
+---
+import { Image } from 'astro:assets';
+
+// image1Path is a string of a relative path to an image from the public folder
+// image2Path is a string of a relative path to an image from the public folder
+const {image1Path, image2Path, image1Alt, image2Alt} = Astro.props
+---
+
 <section class="w-full project-grid gap-in_element">
-    <div class="desktop:col-span-2 tablet:col-span-3 phone:col-span-2 h-[300px] bg-lime-500">IMAGE 1</div>
-    <div class="desktop:col-span-3 tablet:col-span-3 phone:col-span-2 h-[300px] bg-red-500">IMAGE 2</div>
+
+    <Image src={image1Path} alt={image1Alt} width="1" height="300" class="desktop:col-span-2 tablet:col-span-3 phone:col-span-2 h-[300px] w-full" loading="lazy" client:load/>
+    <Image src={image2Path} alt={image2Alt} width="1" height="300" class="desktop:col-span-3 tablet:col-span-3 phone:col-span-2 h-[300px] w-full" loading="lazy" client:load/>
+
 </section>
