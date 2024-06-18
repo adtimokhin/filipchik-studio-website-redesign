@@ -1,7 +1,11 @@
 ---
 // text1 is a string
 // text2 is a string
-const {text1, text2} = Astro.props
+// image1Path is a string of a relative path to an image from the public folder
+// image2Path is a string of a relative path to an image from the public folder
+// image1Alt is an alt to an image. it should be a string
+// image2Alt is an alt to an image. it should be a string
+const {text1, text2, image1Path, image2Path, image1Alt, image2Alt} = Astro.props
 ---
 <section class="w-full h-screen desktop:rounded-t-[63px] tablet:rounded-t-[40px] phone:rounded-t-[34px] bg-main project-grid text-white items-center">
     <h2 class="header-3 desktop:col-span-2 tablet:col-span-1 phone:col-span-2 h-fit">Цели и Задачи</h2>
