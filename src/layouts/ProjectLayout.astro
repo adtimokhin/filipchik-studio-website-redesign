@@ -1,13 +1,13 @@
 ---
 import PreviewSection from "../components/project_sections/PreviewSection.astro";
 import MainLayout from "./MainLayout.astro";
-const {title, projectTitle, summaryPoints, previewImagePath} = Astro.props
+const {title, projectTitle, summaryPoints, previewImagePath, imageAlt} = Astro.props
 ---
 
 <MainLayout title={title}>
 	<main class="footer-spaced">
         
-		<PreviewSection title={projectTitle} summaryPoints={summaryPoints} imagePath={previewImagePath}/>
+		<PreviewSection title={projectTitle} summaryPoints={summaryPoints} imagePath={previewImagePath} imageAlt={imageAlt}/>
 
 		<div class="w-full gap-elements flex flex-col">
             <!-- 
