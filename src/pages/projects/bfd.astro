@@ -1,7 +1,21 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";
+import "../../styles/grids.css"
+import "../../styles/vertical_spacings.css"
+import GoalsSection from "../../components/project_sections/GoalsSection.astro";
+import StatsSection from "../../components/project_sections/StatsSection.astro";
+import LargeImagesSection from "../../components/project_sections/LargeImagesSection.astro";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
 ---
-
-<MainLayout title="BFD">
-	<p>BFD</p>
-</MainLayout>
+<ProjectLayout title="BFD" projectTitle="ОФИС BFD" summaryPoints={["оформление интерьера", "создание виртуальных пространства", "создание 3D-моделей"]}>
+	<GoalsSection 	text1="Малайская строительная компания BFD решила провести корпоративное мероприятие в виртуальной реальности. Заказчик ставил целью площадки проведение ивентов в виртуальной реальности для сотрудников, у которых нет возможности посетить офлайн мероприятие. Для этого была создана цифровая копия реального офиса компании."
+					text2="Члены команды Filipchik Studios осуществляли оформление интерьера площадки под нужды компании и дальнейшее поддержание пространства в рабочем состоянии. Метавселенная компании была реализована на платформе Spatial.io.."
+	/>
+	<StatsSection
+	stats={[
+			{header:"50+", description:"Человек посетило площадку в ходе мероприятий компании"},
+			{header:"40+", description:"Моделей офиса было отцифровано"},
+			{header:"7", description:"Дней заняла реализация проекта"}
+			]}
+	/>
+	<LargeImagesSection/>
+</ProjectLayout>
