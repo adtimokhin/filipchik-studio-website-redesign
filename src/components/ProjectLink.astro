@@ -1,0 +1,11 @@
+---
+import { Image } from 'astro:assets';
+
+const {text, linkDest, imagePath, imageAlt} = Astro.props
+---
+
+<!-- TODO: Add a reversed order for image and text -->
+<a href={linkDest} class="project-grid items-center">
+    <Image src={imagePath} alt={imageAlt} width={1} height={1} draggable="false" class="w-full h-[116px] rounded-full desktop:col-span-2 tablet:col-span-1 phone:col-span-1"/>
+    <h3 class="large-text h-fit text-right desktop:col-span-3 tablet:col-span-2 phone:col-span-1">{text}</h3>
+</a>

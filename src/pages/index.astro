@@ -1,7 +1,47 @@
 ---
+import ProjectLink from "../components/ProjectLink.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import "../styles/vertical_spacings.css"
 ---
 
 <MainLayout title="Home">
-	<p class="large-text">lorem ipsum fazafaka</p>
+	<main class="footer-spaced desktop:pt-[200px] tablet:pt-[140px] phone:pt-[140px] text-text px-10">
+		<!-- FIXME: I do not like the font on META -->
+		<h1 class="w-full text-center desktop:text-[9.75rem] tablet:text-[8rem] phone:text-[4rem] font-black tracking-tight leading-[90%]">РЕКЛАМА В <span class="font-thin">META</span></h1>
+
+			<div class="w-full h-[1px] bg-text desktop:mt-[40px] tablet:mt-[20px] phone:mt-[37px]"/>
+			<h2 class="w-full text-center font-black tablet:text-2xl phone:text-xl top-body-header">
+				Создание цифровых метавселенных, которые захватывают и <span class="text-main">конвертируют</span>
+			</h2>
+
+		<section class="w-full bg-main h-fit flex flex-col justify-center items-center text-white action-items gap-page_tilte-content">
+			<h2 class="desktop:text-[9.75rem] tablet:text-[8rem] phone:text-[4rem] w-full text-center">ЧТООО?</h2>
+			<p class="body text-center">
+				МЫ СОЗДАЕМ СЦЕНЫ И ОБЪЕКТЫ ДЛЯ МЕТАВСЕЛЕННОЙ META, КОТОРЫЕ КОМПАНИИ МОГУТ ИСПОЛЬЗОВАТЬ В СВОИХ ЧАСТНЫХ ПРОЕКТАХ. НАШИ МЕТАОБЪЕКТЫ ПОМОГАЮТ ГЕНЕРИРОВАТЬ ДОХОДЫ ОТ РЕКЛАМЫ И УЛУЧШАЮТ ВЗАИМОДЕЙСТВИЕ С ПОЛЬЗОВАТЕЛЯМИ.
+			</p>
+			<a href="#" class="bg-white py-[24px] px-[20px] text-text flex flex-row gap-4 rounded-full">
+				<p>Связаться</p>
+				<!-- TODO: Add an arrow -->
+				<p>-></p>
+			</a>
+		</section>
+
+		<section class="relative h-[80vh] w-full">
+			<div class="w-full h-full flex flex-col justify-evenly top-0 z-10">
+				<ProjectLink text="AVIASALES" linkDest="/projects/aviasales" imagePath="/projects/aviasales/avisales_preview.png" imageAlt="Aviasales Metaverse"/>
+				<ProjectLink text="ОФИС BFD" linkDest="/projects/bfd" imagePath="/projects/bfd/bfd_preview.png" imageAlt="BFD Metaverse"/>
+				<ProjectLink text="ROBLOX" linkDest="/projects/roblox" imagePath="/projects/roblox/roblox_preview.jpeg" imageAlt="roblox Metaverse"/>
+			</div>
+			<h2 class="w-full h-full absolute top-0 text-center section-title -z-10 flex align-middle justify-center items-center">НАШИ РАБОТЫ</h2>
+		</section>
+
+		<section>
+			our strong sides
+			<!-- TODO: Add this section -->
+		</section>
+
+		<section>
+			
+		</section>
+	</main>
 </MainLayout>
