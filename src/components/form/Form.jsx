@@ -3,6 +3,7 @@ import SmallInputField from './SmallInputField'; // Adjust the import path as ne
 import LargeInputField from './LargeInputField';
 import RadioButtonGroup from './RadioButtonGroup';
 import "../../styles/vertical_spacings.css"
+import svgArrowReference from "../../../public/icons/action-arrow.svg";
 
 const Form = () => {
     const [name, setName] = useState('');
@@ -70,11 +71,11 @@ const Form = () => {
             />
             <button
                 type='submit'
-                class="bg-white py-[24px] px-[20px] text-text flex flex-row gap-4 rounded-full text-based-link"
+                class="bg-white py-[24px] px-[20px] text-text flex flex-row gap-4 rounded-full text-based-link items-center"
             >
                 <p>Отправить</p>
                 {/* TODO: add a side arrow */}
-                <p>---</p>
+                <img src={svgArrowReference.src} alt="arrow" loading="lazy"/>
             </button>
         </form>
     );

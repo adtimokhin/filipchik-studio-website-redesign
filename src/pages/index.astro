@@ -5,6 +5,7 @@ import "../styles/vertical_spacings.css"
 import "../styles/grids.css"
 import WeOnlineListItem from "../components/WeOnlineListItem.astro";
 import Form from "../components/form/Form.jsx";
+import svgArrowReference from '../../public/icons/action-arrow.svg';
 ---
 
 <MainLayout title="Home">
@@ -23,8 +24,7 @@ import Form from "../components/form/Form.jsx";
 				</p>
 				<a href="#contact" class="bg-white py-[24px] px-[20px] text-text flex flex-row gap-4 rounded-full text-based-link">
 					<p>Связаться</p>
-					<!-- TODO: Add an arrow -->
-					<p>-></p>
+					<img src={svgArrowReference.src} alt="arrow" loading="lazy"/>
 				</a>
 			</section>
 
@@ -64,8 +64,7 @@ import Form from "../components/form/Form.jsx";
 			    <div class="project-grid-no-padding">
 					<a href="/online/talks" class="bg-white desktop:col-start-4 desktop:col-span-2 tablet:col-start-2 tablet:col-span-2 phone:col-start-1 phone:col-span-2 py-[24px] px-[20px] text-text flex flex-row rounded-full justify-between">
 						<p class="text-based-link">Огласить весь список? пожалуйста!</p>
-						<!-- TODO: Add an arrow -->
-						<p>-></p>
+						<img src={svgArrowReference.src} alt="arrow" loading="lazy"/>
 					</a>
 				</div>
 				
