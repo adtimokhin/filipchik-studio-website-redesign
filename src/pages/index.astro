@@ -2,46 +2,81 @@
 import ProjectLink from "../components/ProjectLink.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import "../styles/vertical_spacings.css"
+import "../styles/grids.css"
+import WeOnlineListItem from "../components/WeOnlineListItem.astro";
+import Form from "../components/form/Form.jsx";
 ---
 
 <MainLayout title="Home">
-	<main class="footer-spaced desktop:pt-[200px] tablet:pt-[140px] phone:pt-[140px] text-text px-10">
+	<main class="desktop:pt-[200px] tablet:pt-[140px] phone:pt-[140px] text-text px-10 overflow-hidden">
 		<!-- FIXME: I do not like the font on META -->
 		<h1 class="w-full text-center desktop:text-[9.75rem] tablet:text-[8rem] phone:text-[4rem] font-black tracking-tight leading-[90%]">РЕКЛАМА В <span class="font-thin">META</span></h1>
-
-			<div class="w-full h-[1px] bg-text desktop:mt-[40px] tablet:mt-[20px] phone:mt-[37px]"/>
+		<div class="w-full h-[1px] bg-text desktop:mt-[40px] tablet:mt-[20px] phone:mt-[37px]"/>
+		<div class="w-full flex flex-col justify-center items-center gap-sections">
 			<h2 class="w-full text-center font-black tablet:text-2xl phone:text-xl top-body-header">
 				Создание цифровых метавселенных, которые захватывают и <span class="text-main">конвертируют</span>
 			</h2>
+			<section class="w-full bg-main h-fit flex flex-col justify-center items-center text-white action-items gap-page_tilte-content">
+				<h2 class="desktop:text-[9.75rem] tablet:text-[8rem] phone:text-[4rem] w-full text-center">ЧТООО?</h2>
+				<p class="body text-center">
+					МЫ СОЗДАЕМ СЦЕНЫ И ОБЪЕКТЫ ДЛЯ МЕТАВСЕЛЕННОЙ META, КОТОРЫЕ КОМПАНИИ МОГУТ ИСПОЛЬЗОВАТЬ В СВОИХ ЧАСТНЫХ ПРОЕКТАХ. НАШИ МЕТАОБЪЕКТЫ ПОМОГАЮТ ГЕНЕРИРОВАТЬ ДОХОДЫ ОТ РЕКЛАМЫ И УЛУЧШАЮТ ВЗАИМОДЕЙСТВИЕ С ПОЛЬЗОВАТЕЛЯМИ.
+				</p>
+				<a href="#contact" class="bg-white py-[24px] px-[20px] text-text flex flex-row gap-4 rounded-full">
+					<p>Связаться</p>
+					<!-- TODO: Add an arrow -->
+					<p>-></p>
+				</a>
+			</section>
 
-		<section class="w-full bg-main h-fit flex flex-col justify-center items-center text-white action-items gap-page_tilte-content">
-			<h2 class="desktop:text-[9.75rem] tablet:text-[8rem] phone:text-[4rem] w-full text-center">ЧТООО?</h2>
-			<p class="body text-center">
-				МЫ СОЗДАЕМ СЦЕНЫ И ОБЪЕКТЫ ДЛЯ МЕТАВСЕЛЕННОЙ META, КОТОРЫЕ КОМПАНИИ МОГУТ ИСПОЛЬЗОВАТЬ В СВОИХ ЧАСТНЫХ ПРОЕКТАХ. НАШИ МЕТАОБЪЕКТЫ ПОМОГАЮТ ГЕНЕРИРОВАТЬ ДОХОДЫ ОТ РЕКЛАМЫ И УЛУЧШАЮТ ВЗАИМОДЕЙСТВИЕ С ПОЛЬЗОВАТЕЛЯМИ.
-			</p>
-			<a href="#" class="bg-white py-[24px] px-[20px] text-text flex flex-row gap-4 rounded-full">
-				<p>Связаться</p>
-				<!-- TODO: Add an arrow -->
-				<p>-></p>
-			</a>
-		</section>
+			<section class="relative h-[80vh] w-full">
+				<div class="w-full h-full flex flex-col justify-evenly top-0 z-10">
+					<ProjectLink text="AVIASALES" linkDest="/projects/aviasales" imagePath="/projects/aviasales/avisales_preview.png" imageAlt="Aviasales Metaverse"/>
+					<ProjectLink text="ОФИС BFD" linkDest="/projects/bfd" imagePath="/projects/bfd/bfd_preview.png" imageAlt="BFD Metaverse"/>
+					<ProjectLink text="ROBLOX" linkDest="/projects/roblox" imagePath="/projects/roblox/roblox_preview.jpeg" imageAlt="roblox Metaverse"/>
+				</div>
+				<h2 class="w-full h-full absolute top-0 text-center section-title -z-10 flex align-middle justify-center items-center">НАШИ РАБОТЫ</h2>
+			</section>
 
-		<section class="relative h-[80vh] w-full">
-			<div class="w-full h-full flex flex-col justify-evenly top-0 z-10">
-				<ProjectLink text="AVIASALES" linkDest="/projects/aviasales" imagePath="/projects/aviasales/avisales_preview.png" imageAlt="Aviasales Metaverse"/>
-				<ProjectLink text="ОФИС BFD" linkDest="/projects/bfd" imagePath="/projects/bfd/bfd_preview.png" imageAlt="BFD Metaverse"/>
-				<ProjectLink text="ROBLOX" linkDest="/projects/roblox" imagePath="/projects/roblox/roblox_preview.jpeg" imageAlt="roblox Metaverse"/>
-			</div>
-			<h2 class="w-full h-full absolute top-0 text-center section-title -z-10 flex align-middle justify-center items-center">НАШИ РАБОТЫ</h2>
-		</section>
+			<section>
+				<h2 class="w-full text-center section-title">МЫ ЭТО:</h2>
 
-		<section>
-			our strong sides
-			<!-- TODO: Add this section -->
-		</section>
+				<div>
+					Here we will put the "WORDS"
+					<!-- TODO: Add this -->
+				</div>
 
-		<section>
-			
-		</section>
+				<div class="body project-grid-no-padding text-text">
+					<p class="desktop:col-span-2 desktop:col-start-4 tablet:col-span-2 tablet:col-start-1 phone:col-span-2 phone:col-start-1">Во всём, что мы делаем, человек стоит на первом месте. Поэтому нам удалось собрать команду профессионалов со всего мира. Наши техники создают сложные игровые механики, а визуальный креатив собирает лучшие отзывы на рынке.</p>
+				</div>
+			</section>
+
+			<div>
+			<section class="w-screen h-fit px-10 desktop:rounded-t-[63px] tablet:rounded-t-[40px] phone:rounded-t-[34px] bg-main text-white flex flex-col page_tilte-content gap-page_tilte-content">
+				<h2 class="header-2 desktop:col-span-2 tablet:col-span-1 phone:col-span-2 h-fit w-full">МЫ ОНЛАЙН</h2>
+				<ul class="w-full gap-in_element flex flex-col">
+					<WeOnlineListItem title="ВИРТУАЛЬНАЯ ЖОПА" subText="НАШ ПОДКАСТ" linkDest="https://virtualnaya-zhopa.mave.digital/"/>
+					<hr class="border-white">
+					<WeOnlineListItem title="ВК ТЕХПРОСВЕТ" subText="ВЫСТУПЛЕНИЕ" linkDest="https://vk.com/video-218852519_456239175?t=50m55s"/>
+					<hr class="border-white">
+					<WeOnlineListItem title="ТЕХНОЛОГИИ & ЖИЗНЬ" subText="ИНТЕРВЬЮ" linkDest="https://www.youtube.com/watch?v=455ihH19uMM&t=19s"/>
+				</ul>
+
+			    <div class="project-grid-no-padding">
+					<a href="/online/talks" class="bg-white desktop:col-start-4 desktop:col-span-2 tablet:col-start-2 tablet:col-span-2 phone:col-start-1 phone:col-span-2 py-[24px] px-[20px] text-text flex flex-row rounded-full justify-between">
+						<p class="text-based-link">Огласить весь список? пожалуйста!</p>
+						<!-- TODO: Add an arrow -->
+						<p>-></p>
+					</a>
+				</div>
+				
+			</section>
+			<section class="w-screen h-fit px-10 bg-accent text-white" id="contact">
+				<h2 class="header-2 desktop:col-span-2 tablet:col-span-1 phone:col-span-2 h-fit w-full text-center">СВЯЖИТЕСЬ С НАМИ!</h2>
+				<!-- Contact Form -->
+				<Form client:load/>
+			</section>
+		</div>
+
+		</div>
 	</main>
 </MainLayout>
