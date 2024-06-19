@@ -9,7 +9,7 @@ const SmallInputField = ({ labelText, placeholderText, value, onChange }) => {
                 placeholder={placeholderText}
                 value={value}
                 onChange={onChange}
-                className="w-[436px] h-20 px-2 border border-white selection:border-none bg-transparent text-white placeholder-white/50 focus:outline-none focus:ring-0 selection:bg-main" 
+                className="desktop:w-[436px] desktop:h-20 tablet:w-[300px] tablet:h-[70px] phone:w-[230px] phone:h-[50px] px-2 border border-white selection:border-none bg-transparent text-white placeholder-white/50 focus:outline-none focus:ring-0 selection:bg-main" 
             />
         </div>
     );
