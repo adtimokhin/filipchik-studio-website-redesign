@@ -1,24 +1,65 @@
 ---
-import svgReference from '../../public/logo.svg'; // svgReference === '/src/logo_alt.svg'
+import svgReference from '../../public/square-filipchik-logo.svg'; // svgReference === '/src/logo_alt.svg'
 import Link from './Link.astro';
 ---
 
 <!-- TODO: Add correct horizontal spacing -->
-<nav class="w-full h-fit mt-8 flex flex-1 justify-between items-center px-10 absolute top-3">
+<nav class="w-full h-fit mt-8 flex flex-1 justify-between items-center px-10 fixed top-3 z-50">
 
     <a href="/">
-        <img src={svgReference.src} alt="Filipchik Studios Logo" draggable="false" class="desktop:w-52 tablet:w-52 phone:w-36"/>
+        <img src={svgReference.src} alt="Filipchik Studios Logo" draggable="false" class="desktop:w-20 tablet:w-20 phone:w-16"/>
     </a>
 
+
+<!-- Burger Menu Icon for smaller screens -->
+<div id="burger-menu" class="phone:block tablet:hidden hidden">
+    <button id="burger-button" class="text-text focus:outline-none">
+        <svg class="w-6 h-6 phone:w-8 phone:h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+</div>
+
     <!-- TODO: Add a burger menu for phone screens -->
-    <div class="flex justify-end w-fit gap-x-2 nav-link text-text items-center">
-        <a href="/careers">КАРЬЕРА</a>
-        <!-- Dot -->
-        <span class="h-[5px] w-[5px] rounded-full bg-text"/>
-        <a href="/online/talks">МЫ ОНЛАЙН</a>
-        <!-- Dot -->
-        <span class="h-[5px] w-[5px] rounded-full bg-text"/>
-        <Link dest="#contact" text="СВЯЗАТЬСЯ" isPrimary={true}/>
+    <div class="phone:hidden tablet:flex justify-end w-fit gap-x-2 nav-link text-text items-center ">
+        <div id="nav-links" class="flex items-center gap-x-2 transition-transform duration-500">
+            <a href="/careers">КАРЬЕРА</a>
+            <!-- Dot -->
+            <span class="h-[5px] w-[5px] rounded-full bg-text"/>
+            <a href="/online/talks">МЫ ОНЛАЙН</a>
+            <!-- Dot -->
+            <span class="h-[5px] w-[5px] rounded-full bg-text"/>
+        </div>
+        <Link dest="/#contact" text="СВЯЗАТЬСЯ" isPrimary={true}/>
     </div>
 
 </nav>
+
+<script>
+    let lastScrollTop = 0;
+    const navLinks = document.getElementById('nav-links');
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 300) {
+            if (scrollTop > lastScrollTop) {
+                // Downscroll
+                navLinks.style.transform = 'translateY(-400%)';
+            } else {
+                // Upscroll
+                navLinks.style.transform = 'translateY(0)';
+            }
+        } else {
+            navLinks.style.transform = 'translateY(0)';
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    });
+</script>
+
+<style>
+    #nav-links {
+        will-change: transform;
+    }
+</style>
