@@ -4,13 +4,30 @@ import NavBar from "../components/NavBar.astro"
 const { title } = Astro.props
 ---
 
-<html lang="en">
+<html lang="ru">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Главная - Filipchik Studios" />
+        <meta property="og:description" content="Создание метавселенных для маркетинга. Помощь в конвертации" />
+        <meta property="og:image" content="/images/seo_image.png" />
+        <meta property="og:url" content="https://filipchik-studio-website-redesign.vercel.app/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Filipchik Studios" />
+
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Главная - Filipchik Studios" />
+        <meta name="twitter:description" content="Создание метавселенных для маркетинга. Помощь в конвертации" />
+        <meta name="twitter:image" content="/images/seo_image.png" />
+        <meta name="twitter:site" content="@Filipchik Studios" />
+
+        <title>{title}</title>
+        <meta name="description" content="Создание метавселенных для маркетинга. Помощь в конвертации">
 	</head>
 	<body>
         <NavBar/>
