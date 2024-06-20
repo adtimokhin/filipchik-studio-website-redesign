@@ -8,8 +8,36 @@ const {title, subText, linkDest} = Astro.props
 <a href={linkDest} target="_blank" class="w-full flex flex-row justify-between items-center group">
 
     <span>
-        <h3 class="header-3">{title}</h3>
+        <p class="header-3 text-center contact-link"><span class="text group-hover:translate-y-full">{title}</span><span class="text-hover group-hover:translate-y-[110%]">{title}</span></p>
+        <!-- <h3 class="header-3">{title}</h3> -->
         <p class="body">{subText}</p>
     </span>
     <img src={svgReference.src} alt="move on the page arrow" class="desktop:w-20 desktop:h-20 tablet:w-10 tablet:h-10 phone:w-8 phone:h-8 group-hover:rotate-45 duration-300" draggable="false" loading="lazy"/>
 </a>
+
+
+<style>
+    .contact-link {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+    }
+
+    .contact-link .text,
+    .contact-link .text-hover {
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .contact-link .text-hover {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+    }
+
+
+</style>
