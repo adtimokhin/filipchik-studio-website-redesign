@@ -14,7 +14,7 @@ const {jobTitle, summaryPoints, summaryFull, links} = Astro.props
     </div>
     <div class="desktop:col-span-2 tablet:col-span-1 phone:col-span-2 h-fit flex flex-col gap-y-4 order-last tablet:order-2 desktop:order-2">
         {
-            links.map(link => <Link dest={link.link} text={link.text} isPrimary={true}/> )
+            links.map((link, index) => <Link dest={link.link} text={link.text} isPrimary={index % 2 == 0}/> )
         }
     </div>
     <div class="col-span-3 order-3">

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const RadioButtonGroup = ({ labelText, options, onChange }) => {
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState("Услуги");
 
     const handleOptionChange = (e) => {
         setSelectedOption(e.target.value);

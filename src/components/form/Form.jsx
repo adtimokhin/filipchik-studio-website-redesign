@@ -13,7 +13,7 @@ const Form = () => {
     const [description, setDescription] = useState('');
     const [option, setOption] = useState('');
 
-    const options = ['Услуги', 'Партнерство', 'Медиа/СМИ', 'Выступление', 'Другое'];
+    const options = ['Партнерство', 'Медиа/СМИ', 'Услуги', 'Выступление', 'Другое'];
 
 
     const handleSubmit = (e) => {

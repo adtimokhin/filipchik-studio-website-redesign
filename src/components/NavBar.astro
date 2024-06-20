@@ -1,5 +1,6 @@
 ---
 import svgReference from '../../public/square-filipchik-logo.svg'; // svgReference === '/src/logo_alt.svg'
+import svgArrowIconReference from "../../public/icons/direct_arrow.svg"
 import Link from './Link.astro';
 ---
 
@@ -30,7 +31,12 @@ import Link from './Link.astro';
             <!-- Dot -->
             <span class="h-[5px] w-[5px] rounded-full bg-text"/>
         </div>
-        <Link dest="/#contact" text="СВЯЗАТЬСЯ" isPrimary={true}/>
+
+        <!-- CTA Link -->
+        <a href="/#contact" class="nav-link bg-accent text-white rounded-full px-5 py-4 flex gap-3 justify-between">
+            <p>СВЯЗАТЬСЯ</p>
+            <img src={svgArrowIconReference.src} alt="move on the page arrow" class="w-5" loading="eager" />
+        </a>
     </div>
 
 </nav>
