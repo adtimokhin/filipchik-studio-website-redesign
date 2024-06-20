@@ -5,7 +5,7 @@ import Link from './Link.astro';
 ---
 
 <!-- TODO: Add correct horizontal spacing -->
-<nav class="w-full h-fit mt-8 flex flex-1 justify-between items-center px-10 fixed top-3 z-50">
+<nav class="w-full h-fit pt-8 flex flex-1 justify-between items-center px-10 fixed top-0 z-50 overflow-y-hidden">
 
     <a href="/">
         <img src={svgReference.src} alt="Filipchik Studios Logo" draggable="false" class="desktop:w-20 tablet:w-20 phone:w-8"/>
@@ -22,7 +22,7 @@ import Link from './Link.astro';
 </div>
 
     <!-- TODO: Add a burger menu for phone screens -->
-    <div class="phone:hidden tablet:flex justify-end w-fit gap-x-2 nav-link text-text items-center ">
+    <div class="phone:hidden tablet:flex justify-end w-fit gap-x-2 nav-link text-text items-center">
         <div id="nav-links" class="flex items-center gap-x-2 transition-transform duration-500">
             <a href="/careers">КАРЬЕРА</a>
             <!-- Dot -->
@@ -33,7 +33,8 @@ import Link from './Link.astro';
         </div>
 
         <!-- CTA Link -->
-        <a href="/#contact" class="nav-link bg-accent text-white rounded-full px-5 py-4 flex gap-3 justify-between">
+        <a href="/#contact" class="nav-link bg-accent text-white rounded-full cta-link">
+            
             <p>СВЯЗАТЬСЯ</p>
             <img src={svgArrowIconReference.src} alt="move on the page arrow" class="w-5" loading="eager" />
         </a>
@@ -67,5 +68,73 @@ import Link from './Link.astro';
 <style>
     #nav-links {
         will-change: transform;
+    }
+
+    #nav-links a {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+    }
+
+    #nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: currentColor;
+        transition: width 0.3s ease;
+    }
+
+    #nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .cta-link {
+        position: relative;
+        width: 150px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-center;
+        overflow: hidden;
+        padding: 20px 30px;
+        transition: color 0.3s ease;
+    }
+
+    .cta-link p {
+        position: absolute;
+        left: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .cta-link img {
+        position: absolute;
+        right: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    /* FIXME: I do not like how this second arrow appears from the top */
+    .cta-link::before {
+        content: url("/icons/direct_arrow.svg");
+        position: absolute;
+        left: 0px;
+        top: 10px;
+        transform: translate(-100%, -50%);
+        transition: transform 0.3s ease;
+    }
+
+    .cta-link:hover p {
+        transform: translateX(30px);
+    }
+
+    .cta-link:hover img {
+        transform: translateX(30px);
+    }
+
+    .cta-link:hover::before {
+        transform: translateX(10px);
     }
 </style>
