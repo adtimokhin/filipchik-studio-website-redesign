@@ -18,6 +18,7 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 			<h2 class="w-full text-center font-black tablet:text-2xl phone:text-xl top-body-header">
 				Создание цифровых метавселенных, которые захватывают и <span class="text-main">конвертируют</span>
 			</h2>
+			<!-- Whaaaat Section -->
 			<section class="w-full bg-main h-fit flex flex-col justify-center items-center text-white action-items gap-page_tilte-content">
 				<h2 class="desktop:text-[9.75rem] tablet:text-[8rem] phone:text-[4rem] w-full text-center">ЧТООО?</h2>
 				<p class="body text-center">
@@ -112,4 +113,21 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
         window.addEventListener('resize', handleScroll);
         handleScroll(); // Initial check on page load
     });
+
+
+	document.addEventListener('DOMContentLoaded', () => {
+    const highlight = document.querySelector('.highlight');
+    const blob = document.querySelector<HTMLDivElement>('.blob');
+
+    function positionBlob() {
+      const rect = highlight.getBoundingClientRect();
+      const heroRect = document.querySelector('.hero').getBoundingClientRect();
+
+      blob.style.top = `${rect.top - heroRect.top + rect.height / 2}px`;
+      blob.style.left = `${rect.left - heroRect.left + rect.width / 2}px`;
+    }
+
+    positionBlob();
+    window.addEventListener('resize', positionBlob);
+  	});
 </script>

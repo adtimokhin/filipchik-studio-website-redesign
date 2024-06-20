@@ -5,7 +5,10 @@ const {text, linkDest, imagePath, imageAlt, reversed} = Astro.props
 ---
 
 <!-- TODO: Add a reversed order for image and text -->
-<a href={linkDest} class="project-grid-no-padding items-center">
-    <Image src={imagePath} alt={imageAlt} width={1} height={1} draggable="false" loading="eager" class={`w-full desktop:h-[116px] tablet:h-[79px] phone:h-[60px] rounded-full desktop:col-span-2 tablet:col-span-1 phone:col-span-1 ${reversed? "order-last":""}`}/>
+<a href={linkDest} class="project-grid-no-padding items-center group overflow-y-hidden desktop:h-[200px] tablet:h-[140px] phone:h-[100px]">
+    <div class={`desktop:group-hover:h-[200px] tablet:group-hover:h-[140px] phone:group-hover:h-[100px] desktop:group-hover:rounded-[112px] overflow-hidden w-full desktop:h-[116px] tablet:h-[79px] phone:h-[60px] rounded-full desktop:col-span-2 tablet:col-span-1 phone:col-span-1 ${reversed? "order-last":""} flex felx-1 justify-center items-center transition-all duration-300`}>
+        <Image src={imagePath} alt={imageAlt} width={1} height={1} draggable="false" loading="eager" class={`w-full desktop:h-[200px] tablet:h-[140px] phone:h-[100px] desktop:col-span-2 tablet:col-span-1 phone:col-span-1 ${reversed? "order-last":""}`}/>
+    </div>
+    
     <h3 class={`large-text h-fit ${reversed? "text-left":"text-right"} desktop:col-span-3 tablet:col-span-2 phone:col-span-1`}>{text}</h3>
 </a>
