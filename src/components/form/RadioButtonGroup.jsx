@@ -12,7 +12,7 @@ const RadioButtonGroup = ({ labelText, options, onChange }) => {
     return (
         <div className="flex flex-col items-start w-full relative">
             <label className="mb-2 text-white header-4 w-full text-center">{labelText}</label>
-            <div className="w-full overflow-x-auto flex items-center justify-center relative">
+            <div className="w-full overflow-x-auto flex flex-1 desktop:justify-center tablet:justify-start phone:justify-start phone:pl-20">
                 <div className="flex space-x-8 whitespace-nowrap body pr-10">
                     {options.map((option, index) => (
                         <label key={index} className={`flex items-center gap-4 ${selectedOption === option ? 'text-white' : 'text-text_dimmed hover:text-text'} group hover:cursor-pointer`}>

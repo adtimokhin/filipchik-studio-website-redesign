@@ -24,7 +24,7 @@ const Form = () => {
 
     return (
         <form onSubmit={handleSubmit} className="flex flex-col items-center gap-action-items justify-center">
-            <span className='w-full flex flex-row justify-center gap-x-5'>
+            <span className='w-full flex desktop:flex-row tablet:flex-row phone:flex-col justify-center gap-x-5 gap-action-items'>
                 <SmallInputField
                 labelText="Ваше Имя"
                 placeholderText="Имя сюда"
@@ -38,7 +38,7 @@ const Form = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 />
             </span>
-            <span className='w-full flex flex-row justify-center gap-x-5'>
+            <span className='w-full flex desktop:flex-row tablet:flex-row phone:flex-col justify-center gap-x-5 gap-action-items'>
                 <SmallInputField
                 labelText="Название Компании"
                 placeholderText="Что за компания?"

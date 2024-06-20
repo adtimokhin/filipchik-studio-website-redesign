@@ -2,7 +2,7 @@
 // TODO: I need to make the placeholder text to be of text font "body"
 const SmallInputField = ({ labelText, placeholderText, value, onChange }) => {
     return (
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col desktop:items-start tablet:items-start phone:items-center">
             <label className="mb-2 text-white header-4">{labelText}</label>
             <input
                 type="text"
