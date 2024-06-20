@@ -1,9 +1,88 @@
 ---
-const {dest, text, isPrimary, iconPath, iconAlt} = Astro.props
+const { dest, text, isPrimary, iconPath, iconAlt } = Astro.props;
 ---
-<a href={dest} class={`nav-link ${isPrimary? "bg-accent text-white" : "bg-white text-text"} rounded-full px-5 py-4 flex gap-3 justify-between items-center`}>
-    <p>{text}</p>
-    <!-- For now we have a fixed icon -->
-    <img src={iconPath} alt={iconAlt} width="30px" loading="lazy" />
+<a href={dest} class={`nav-link relative ${isPrimary ? "bg-accent text-white" : "bg-white text-text"} rounded-full h-7 py-8 flex gap-3 justify-between items-center`} onclick="return false;">
+    <p class="cursor-text absolute z-20 left-2">{text}</p>
+    <img src={iconPath} alt={iconAlt} width="30px" loading="lazy" class="absolute right-3 z-20" />
 </a>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const linkElements = document.querySelectorAll('.nav-link');
+
+        linkElements.forEach(linkElement => {
+            const textElement = linkElement.querySelector<HTMLElement>('.cursor-text');
+
+            if (textElement instanceof HTMLElement) {
+                linkElement.addEventListener('mouseenter', () => {
+                    linkElement.addEventListener('mousemove', onMouseMove);
+                });
+
+                linkElement.addEventListener('mouseleave', () => {
+                    linkElement.removeEventListener('mousemove', onMouseMove);
+                    textElement.style.transform = 'translate(0, 0)';
+                });
+
+                linkElement.addEventListener('mousedown', onMouseDown);
+                linkElement.addEventListener('mouseup', onMouseUp);
+
+                function onMouseMove(event) {
+                    const rect = linkElement.getBoundingClientRect();
+                    const offsetX = event.clientX - rect.left - 100; // Adjust offset as needed
+                    const offsetY = event.clientY - rect.top - 35;  // Adjust offset as needed
+                    textElement.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+                }
+
+                function onMouseDown(event) {
+                    const rect = linkElement.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+
+                    circle.style.position = 'absolute';
+                    circle.style.width = circle.style.height = `${size}px`;
+                    circle.style.left = `${event.clientX - rect.left - size / 2}px`;
+                    circle.style.top = `${event.clientY - rect.top - size / 2}px`;
+                    circle.style.zIndex='10';
+                    circle.style.background = '#0B73FD';
+                    circle.style.borderRadius = '50%';
+                    circle.style.pointerEvents = 'none';
+                    circle.style.transform = 'scale(0)';
+                    circle.style.transition = 'transform 1.5s cubic-bezier(0.23, 1, 0.32, 1)';
+
+                    linkElement.appendChild(circle);
+
+                    requestAnimationFrame(() => {
+                        circle.style.transform = 'scale(1)';
+                    });
+
+                    circle.addEventListener('transitionend', () => {
+                        circle.style.transition = 'transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
+                        circle.style.transform = 'scale(0)';
+                        circle.addEventListener('transitionend', () => {
+                            circle.remove();
+                        }, { once: true });
+                    }, { once: true });
+                }
+
+                function onMouseUp(event) {
+                    event.preventDefault();
+                    setTimeout(() => {
+                        window.open(linkElement.href, '_blank'); // DO not worry about it. It works. I hope...
+                    }, 180); // Total delay of 700ms to cover both animations
+                }
+            }
+        });
+    });
+</script>
+
+<style>
+    .nav-link {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cursor-text {
+        transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* Adjust the duration and easing function */
+        pointer-events: none; /* Ensure the text doesn't interfere with mouse events */
+    }
+</style>

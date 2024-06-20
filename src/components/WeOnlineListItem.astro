@@ -1,15 +1,15 @@
 ---
 // import 
 import { Image } from 'astro:assets';
-import svgReference from '../../public/icons/arrow-up-right.svg';
+import svgReference from '../../public/icons/arrow-up-right-white.svg';
 const {title, subText, linkDest} = Astro.props
 ---
 
-<a href={linkDest} target="_blank" class="w-full flex flex-row justify-between items-center">
+<a href={linkDest} target="_blank" class="w-full flex flex-row justify-between items-center group">
 
     <span>
         <h3 class="header-3">{title}</h3>
         <p class="body">{subText}</p>
     </span>
-    <img src={svgReference.src} alt="move on the page arrow" class="desktop:w-20 desktop:h-20 tablet:w-10 tablet:h-10 phone:w-8 phone:h-8" draggable="false" loading="lazy"/>
+    <img src={svgReference.src} alt="move on the page arrow" class="desktop:w-20 desktop:h-20 tablet:w-10 tablet:h-10 phone:w-8 phone:h-8 group-hover:rotate-45 duration-300" draggable="false" loading="lazy"/>
 </a>
