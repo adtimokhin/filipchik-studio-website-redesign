@@ -1,15 +1,9 @@
 ---
-import { Image } from 'astro:assets';
-import svgReference from '../../public/icons/download-icon.svg';
-const {dest, text, isPrimary} = Astro.props
+const {dest, text, isPrimary, iconPath, iconAlt} = Astro.props
 ---
-<a href={dest} class={`nav-link ${isPrimary? "bg-accent text-white" : "bg-white text-text"} rounded-full px-5 py-4 flex gap-3 justify-between`}>
-
+<a href={dest} class={`nav-link ${isPrimary? "bg-accent text-white" : "bg-white text-text"} rounded-full px-5 py-4 flex gap-3 justify-between items-center`}>
     <p>{text}</p>
     <!-- For now we have a fixed icon -->
-    <!-- TODO: Make icon change on the parameter passed -->
-     <!-- <Image src={"/icons/download-icon.svg"} alt="kkdkdk" width={3} height={3} class='w-4'/> -->
-    <img src={svgReference.src} alt="move on the page arrow" width="30px" />
-
+    <img src={iconPath} alt={iconAlt} width="30px" loading="lazy" />
 </a>
 
