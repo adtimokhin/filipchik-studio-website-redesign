@@ -1,7 +1,7 @@
 ---
 const { dest, text, isPrimary, iconPath, iconAlt } = Astro.props;
 ---
-<a href={dest} class={`nav-link relative ${isPrimary ? "bg-accent text-white" : "bg-white text-text"} rounded-full h-7 py-8 flex gap-3 justify-between items-center`} onclick="return false;">
+<a href={dest} class={`nav-link relative ${isPrimary ? "bg-accent text-white" : "bg-white text-text"} rounded-full h-7 py-8 flex gap-3 justify-between items-center overflow-hidden`} onclick="return false;">
     <p class="cursor-text absolute z-20 left-2">{text}</p>
     <img src={iconPath} alt={iconAlt} width="30px" loading="lazy" class="absolute right-3 z-20" />
 </a>

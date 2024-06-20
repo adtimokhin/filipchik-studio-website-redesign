@@ -1,0 +1,66 @@
+---
+export const logos = [
+  { src: '/logos/logo-1.svg', alt: 'Logo 1' },
+  { src: '/logos/logo-2.svg', alt: 'Logo 2' },
+  { src: '/logos/logo-3.svg', alt: 'Logo 3' },
+  { src: '/logos/logo-4.svg', alt: 'Logo 4' },
+];
+---
+<div class="logo-container">
+    <div class="cube">
+        <div class="face front"><img src={logos[0].src} alt={logos[0].alt} class="logo" /></div>
+        <div class="face back"><img src={logos[1].src} alt={logos[1].alt} class="logo" /></div>
+        <div class="face left"><img src={logos[2].src} alt={logos[2].alt} class="logo" /></div>
+        <div class="face right"><img src={logos[3].src} alt={logos[3].alt} class="logo" /></div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const logoContainer = document.querySelector('.logo-container');
+        const cube = document.querySelector('.cube');
+
+        logoContainer.addEventListener('mouseenter', () => {
+            cube.classList.add('rotate');
+        });
+
+        logoContainer.addEventListener('mouseleave', () => {
+            cube.classList.remove('rotate');
+        });
+    });
+</script>
+
+<style>
+    .logo-container {
+        perspective: 1000px;
+    }
+
+    .cube {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 1s ease;
+    }
+
+    .cube.rotate {
+        transform: rotateY(360deg);
+    }
+
+    .face {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        backface-visibility: hidden;
+    }
+
+    .front { transform: rotateY(0deg) translateZ(25px); }
+    .back { transform: rotateY(180deg) translateZ(25px); }
+    .left { transform: rotateY(-90deg) translateZ(25px); }
+    .right { transform: rotateY(90deg) translateZ(25px); }
+
+    .logo {
+        width: 100%;
+        height: 100%;
+    }
+</style>

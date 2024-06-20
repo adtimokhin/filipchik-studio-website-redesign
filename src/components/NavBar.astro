@@ -1,14 +1,17 @@
 ---
-import svgReference from '../../public/square-filipchik-logo.svg'; // svgReference === '/src/logo_alt.svg'
+// import svgReference from '../../public/square-filipchik-logo.svg'; // svgReference === '/src/logo_alt.svg'
 import svgArrowIconReference from "../../public/icons/direct_arrow.svg"
-import Link from './Link.astro';
+// import Link from './Link.astro';
+import InteractiveLogo from './InteractiveLogo.astro';
 ---
 
 <!-- TODO: Add correct horizontal spacing -->
 <nav class="w-full h-fit pt-8 flex flex-1 justify-between items-center side-margins fixed top-0 z-50 overflow-y-hidden">
 
     <a href="/">
-        <img src={svgReference.src} alt="Filipchik Studios Logo" draggable="false" class="desktop:w-20 tablet:w-20 phone:w-8"/>
+        <InteractiveLogo/>
+        <!-- Old version -->
+        <!-- <img src={svgReference.src} alt="Filipchik Studios Logo" draggable="false" class="desktop:w-20 tablet:w-20 phone:w-8"/> -->
     </a>
 
 
