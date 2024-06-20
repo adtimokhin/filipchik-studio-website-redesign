@@ -1,0 +1,34 @@
+---
+const {text, dest} = Astro.props
+
+---
+<a href={dest} target="_blank" class="w-full flex flex-row justify-center gap-x-4 group">
+    <p class="body text-center contact-link"><span class="text group-hover:translate-y-full">{text}</span><span class="text-hover group-hover:translate-y-[110%]">{text}</span></p>
+    <img src="/icons/arrow-up-right.svg" alt="arrow" height="30px" width="30px" class="w-10 group-hover:rotate-45 duration-300"/>
+</a>
+
+<style>
+    .contact-link {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+    }
+
+    .contact-link .text,
+    .contact-link .text-hover {
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .contact-link .text-hover {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+    }
+
+
+</style>
