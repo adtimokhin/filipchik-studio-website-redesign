@@ -12,12 +12,17 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 	<main class="desktop:pt-[200px] tablet:pt-[140px] phone:pt-[140px] text-text side-margins overflow-hidden">
 
 		<!-- FIXME: I do not like the font on META -->
-		<h1 class="w-full text-center desktop:text-[9.75rem] tablet:text-[8rem] phone:text-[4rem] font-black tracking-tight leading-[90%]">РЕКЛАМА В <span class="font-thin ">META</span></h1>
-		<div class="w-full h-[1px] bg-text desktop:mt-[40px] tablet:mt-[20px] phone:mt-[37px]"/>
-		<div class="w-full flex flex-col justify-center items-center gap-sections">
-			<h2 class="w-full text-center font-black tablet:text-2xl phone:text-xl top-body-header">
+		<section class="w-full h-fit hero-section">
+			<h1 class="w-full text-center desktop:text-[9.75rem] tablet:text-[8rem] phone:text-[4rem] font-black tracking-tight leading-[90%]">РЕКЛАМА В <span class="font-thin">META</span></h1>
+			<div class="line-container w-full h-[1px] bg-text desktop:mt-[40px] tablet:mt-[20px] phone:mt-[37px]">
+				<div class="line"></div>
+			</div>
+			<h2 class="animated-text w-full text-center font-black tablet:text-2xl phone:text-xl top-body-header">
 				Создание цифровых метавселенных, которые захватывают и <span class="text-main">конвертируют</span>
 			</h2>
+		</section>
+
+		<div class="w-full flex flex-col justify-center items-center gap-sections top-sections">
 			<!-- Whaaaat Section -->
 			<section class="w-full bg-main h-fit flex flex-col justify-center items-center text-white action-items gap-page_tilte-content">
 				<h2 class="desktop:text-[9.75rem] tablet:text-[8rem] phone:text-[4rem] w-full text-center">ЧТООО?</h2>
@@ -143,6 +148,34 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
         transform: translate(10px, 0%);
     }
 
+	.hero-section .line-container {
+		display: flex;
+		justify-content: center;
+		overflow: hidden;
+		background-color: transparent;
+	}
+
+	.hero-section .line {
+		width: 0;
+		height: 100%;
+		background-color: var(--text); /* Ensure this matches your text color */
+		transition: width 0.8s ease;
+	}
+
+	.hero-section .animated-text {
+		opacity: 0;
+		transform: translateY(-20px);
+		transition: opacity 0.8s ease, transform 0.8s ease;
+	}
+
+	.hero-section .line.expand {
+		width: 100%;
+	}
+
+	.hero-section .animated-text.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
 </style>
 
 <script>
@@ -181,4 +214,18 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
     positionBlob();
     window.addEventListener('resize', positionBlob);
   	});
+
+	// scripts.js
+	document.addEventListener('DOMContentLoaded', () => {
+		const line = document.querySelector('.hero-section .line');
+		const animatedText = document.querySelector('.hero-section .animated-text');
+
+		setTimeout(() => {
+			line.classList.add('expand');
+		}, 200); // Delay of 0.2s
+
+		line.addEventListener('transitionend', () => {
+			animatedText.classList.add('visible');
+		});
+	});
 </script>
