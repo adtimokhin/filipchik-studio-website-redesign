@@ -21,13 +21,16 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 			<!-- Whaaaat Section -->
 			<section class="w-full bg-main h-fit flex flex-col justify-center items-center text-white action-items gap-page_tilte-content">
 				<h2 class="desktop:text-[9.75rem] tablet:text-[8rem] phone:text-[4rem] w-full text-center">ЧТООО?</h2>
-				<p class="body text-center">
+				<p class="body text-center px-10">
 					МЫ СОЗДАЕМ СЦЕНЫ И ОБЪЕКТЫ ДЛЯ МЕТАВСЕЛЕННОЙ META, КОТОРЫЕ КОМПАНИИ МОГУТ ИСПОЛЬЗОВАТЬ В СВОИХ ЧАСТНЫХ ПРОЕКТАХ. НАШИ МЕТАОБЪЕКТЫ ПОМОГАЮТ ГЕНЕРИРОВАТЬ ДОХОДЫ ОТ РЕКЛАМЫ И УЛУЧШАЮТ ВЗАИМОДЕЙСТВИЕ С ПОЛЬЗОВАТЕЛЯМИ.
 				</p>
-				<a href="#contact" class="bg-white py-[24px] px-[20px] text-text flex flex-row gap-4 rounded-full text-based-link">
-					<p>Связаться</p>
-					<img src={svgArrowReference.src} alt="arrow" loading="lazy"/>
-				</a>
+				<div class="w-[30%]">
+					<a href="#contact" class="bg-white py-[24px] px-[20px] text-text flex flex-row gap-4 rounded-full text-based-link cta-link">
+						<p>Связаться</p>
+						<img src={svgArrowReference.src} alt="arrow" loading="eager"/>
+					</a>
+				</div>
+				
 			</section>
 			
 			<section class="relative h-[80vh] w-full">
@@ -64,7 +67,7 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 				</ul>
 
 			    <div class="project-grid-no-padding">
-					<a href="/online/talks" class="bg-white desktop:col-start-4 desktop:col-span-2 tablet:col-start-2 tablet:col-span-2 phone:col-start-1 phone:col-span-2 py-[24px] px-[20px] text-text flex flex-row rounded-full justify-between">
+					<a href="/online/talks" class="bg-white desktop:col-start-4 desktop:col-span-2 tablet:col-start-2 tablet:col-span-2 phone:col-start-1 phone:col-span-2 py-[24px] px-[20px] text-text flex flex-row rounded-full justify-between cta-link">
 						<p class="text-based-link">Огласить весь список? пожалуйста!</p>
 						<img src={svgArrowReference.src} alt="arrow" loading="lazy"/>
 					</a>
@@ -92,6 +95,54 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
     .action-items.shrink {
 		@apply phone:w-[100%] tablet:w-[60%] desktop:w-[60%]
     }
+
+
+    .cta-link {
+        position: relative;
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-center;
+		gap: 1rem;
+        overflow: hidden;
+        padding: 35px 100px;
+        transition: color 0.3s ease;
+    }
+
+    .cta-link p {
+        position: absolute;
+        left: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .cta-link img {
+        position: absolute;
+        right: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    /* FIXME: I do not like how this second arrow appears from the top */
+    .cta-link::before {
+        content: url("/icons/action-arrow.svg");
+        position: absolute;
+        left: 0px;
+        top: 22px;
+        transform: translate(-100%, 0%);
+        transition: transform 0.3s ease;
+    }
+
+    .cta-link:hover p {
+        transform: translateX(50px);
+    }
+
+    .cta-link:hover img {
+        transform: translateX(50px);
+    }
+
+    .cta-link:hover::before {
+        transform: translate(10px, 0%);
+    }
+
 </style>
 
 <script>

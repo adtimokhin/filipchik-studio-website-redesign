@@ -69,14 +69,16 @@ const Form = () => {
                 setDescription(e.target.value)}
             }
             />
-            <button
-                type='submit'
-                class="bg-white py-[24px] px-[20px] text-text flex flex-row gap-4 rounded-full text-based-link items-center"
-            >
-                <p>Отправить</p>
-                {/* TODO: add a side arrow */}
-                <img src={svgArrowReference.src} alt="arrow" loading="lazy"/>
-            </button>
+            <div class="w-[30%] flex flex-1 justify-center items-center">
+                <button
+                    type='submit'
+                    class="bg-white py-[24px] px-[20px] text-text flex flex-row gap-4 rounded-full text-based-link items-center cta-link"
+                >
+                    <p>Отправить</p>
+                    {/* TODO: add animation to the button like that of other links on the home page*/}
+                    <img src={svgArrowReference.src} alt="arrow" loading="lazy"/>
+                </button>
+            </div>
         </form>
     );
 };
