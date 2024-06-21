@@ -44,7 +44,10 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 					<ProjectLink text="ОФИС BFD" linkDest="/projects/bfd" imagePath="/projects/bfd/bfd_preview.png" imageAlt="BFD Metaverse" reversed={true}/>
 					<ProjectLink text="ROBLOX" linkDest="/projects/roblox" imagePath="/projects/roblox/roblox_preview.jpeg" imageAlt="roblox Metaverse" reversed={false}/>
 				</div>
-				<h2 class="w-full h-full absolute top-0 text-center section-title -z-10 flex align-middle justify-center items-center">НАШИ РАБОТЫ</h2>
+				<h2 class="w-full h-full absolute top-0 text-center -z-10 flex flex-col align-middle justify-center items-center animated-title section-title">
+					<span class="line-height-animation top-word">НАШИ</span>
+					<span class="line-height-animation bottom-word">ПРОЕКТЫ</span>
+				</h2>
 			</section>
 
 			<section>
@@ -176,6 +179,32 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 		opacity: 1;
 		transform: translateY(0);
 	}
+
+.line-height-animation {
+    display: block;
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.top-word {
+    transform: translateY(-100%);
+}
+
+.bottom-word {
+    transform: translateY(100%);
+}
+
+.animated-title.animated .line-height-animation {
+    opacity: 1;
+}
+
+.animated-title.animated .top-word {
+    transform: translateY(0);
+}
+
+.animated-title.animated .bottom-word {
+    transform: translateY(0);
+}
 </style>
 
 <script>
@@ -228,4 +257,24 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 			animatedText.classList.add('visible');
 		});
 	});
+// scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedTitle = document.querySelector('.animated-title');
+
+    const observerOptions = {
+        threshold: 0.8
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animatedTitle.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    observer.observe(animatedTitle);
+});
+
 </script>
