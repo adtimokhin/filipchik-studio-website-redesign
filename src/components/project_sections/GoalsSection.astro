@@ -10,8 +10,90 @@ const {text1, text2, image1Path, image2Path, image1Alt, image2Alt} = Astro.props
 <section class="w-full h-screen desktop:rounded-t-[63px] tablet:rounded-t-[40px] phone:rounded-t-[34px] bg-main project-grid text-white items-center side-margins">
     <h2 class="header-3 desktop:col-span-2 tablet:col-span-1 phone:col-span-2 h-fit">Цели и Задачи</h2>
     <div class="desktop:col-span-3 tablet:col-span-2 phone:col-span-2 body h-fit">
-        <p class="w-full">{text1}</p>
-        <div class="w-full bg-accent top-in_element">IMAGES</div>
-        <p class="w-full top-in_element">{text2}</p>
+        <p class="w-full animated-text">{text1}</p>
+        <div class="w-full h-[240px] desktop:mt-[40px] tablet:mt-[20px] phone:mt-[37px] relative overflow-hidden image-container rounded-3xl">
+            <img src={image2Path} alt={image2Alt} width="10" height="10" class="w-full h-full absolute top-0 left-0 transition-transform duration-400 image-slide rounded-3xl">
+            <img src={image1Path} alt={image1Alt} width="10" height="10" class="w-full h-full absolute top-0 left-0 transition-transform duration-400 image-slide active-image rounded-3xl">
+        </div>
+        <p class="w-full top-in_element animated-text">{text2}</p>
     </div>
 </section>
+
+
+<style>
+    .animated-text {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .animated-text.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .image-container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .image-slide {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        transition: transform 1.4s ease;
+    }
+
+    .active-image {
+        left: 0;
+        transform: translateX(0);
+    }
+
+    .image-slide.next {
+        left: 0;
+        transform: translateX(-100%);
+    }
+
+</style>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const animatedTexts = document.querySelectorAll('.animated-text');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.8 });
+
+        animatedTexts.forEach(text => {
+            observer.observe(text);
+        });
+
+        // Image cycling
+        const images = document.querySelectorAll('.image-slide');
+        let currentIndex = 0;
+
+        function cycleImages() {
+            const currentImage = images[currentIndex];
+            const nextIndex = (currentIndex + 1) % images.length;
+            const nextImage = images[nextIndex];
+
+            currentImage.classList.remove('active-image');
+            currentImage.classList.add('next');
+
+            nextImage.classList.remove('next');
+            nextImage.classList.add('active-image');
+
+            currentIndex = nextIndex;
+        }
+
+        setInterval(cycleImages, 3700);
+    });
+
+</script>
