@@ -14,10 +14,10 @@ const {title, summaryPoints, imagePath, imageAlt} = Astro.props
         <div class="w-screen h-screen z-50 absolute bottom-0" style={{background: "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 64%, rgba(0, 0, 0, 1) 100%);"}}/>
     </div>
     <div class="w-full side-margins absolute bottom-0 my-10 h-fit side-margins">
-        <h1 class="header-2 text-background w-10/12">{title}</h1>
+        <h1 class="header-2 text-background w-10/12 animated-title leading-[0.9]">{title}</h1>
         <hr class="animated-line border-t-1 text-background top-body-header">
         <div class="w-full project-grid-no-padding text-background body text-left top-body-header gap-in_element summary-container">
-            <h2 class="header-4">ОПИСАНИЕ</h2>
+            <h2 class="header-4 animated-subtitle">ОПИСАНИЕ</h2>
             <p class="desktop:col-start-3 tablet:col-start-2 phone:col-start-2 summary-point">{summaryPoints[0]}</p>
             <p class="desktop:col-start-4 tablet:col-start-3 phone:col-start-2 summary-point">{summaryPoints[1]}</p>
             <p class="desktop:col-start-5 tablet:col-start-2 phone:col-start-2 summary-point">{summaryPoints[2]}</p>
@@ -25,13 +25,23 @@ const {title, summaryPoints, imagePath, imageAlt} = Astro.props
     </div>
 </section>
 
-
 <style>
     /* styles.css */
 .animated-line {
     width: 0;
     margin: 0 auto;
     animation: expandLine 1s ease-out forwards;
+}
+
+.animated-title {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInTitle 1s ease-out forwards;
+}
+
+.animated-subtitle {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .summary-container {
@@ -58,6 +68,19 @@ const {title, summaryPoints, imagePath, imageAlt} = Astro.props
 @keyframes expandLine {
     to {
         width: 100%;
+    }
+}
+
+@keyframes slideInTitle {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
     }
 }
 
