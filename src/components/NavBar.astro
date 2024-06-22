@@ -1,8 +1,8 @@
 ---
-// import svgReference from '../../public/square-filipchik-logo.svg'; // svgReference === '/src/logo_alt.svg'
 import svgArrowIconReference from "../../public/icons/direct_arrow.svg"
-// import Link from './Link.astro';
 import InteractiveLogo from './InteractiveLogo.astro';
+import svgArrowReference from '../../public/icons/action-arrow.svg';
+import svgCloseIcon from '../../public/icons/close.svg'; // Assuming you have a close.svg icon in the public/icons folder
 ---
 
 <!-- TODO: Add correct horizontal spacing -->
@@ -10,21 +10,17 @@ import InteractiveLogo from './InteractiveLogo.astro';
 
     <a href="/">
         <InteractiveLogo/>
-        <!-- Old version -->
-        <!-- <img src={svgReference.src} alt="Filipchik Studios Logo" draggable="false" class="desktop:w-20 tablet:w-20 phone:w-8"/> -->
     </a>
 
+    <!-- Burger Menu Icon for smaller screens -->
+    <div id="burger-menu" class="phone:block tablet:hidden hidden">
+        <button id="burger-button" class="text-text focus:outline-none">
+            <svg class="w-6 h-6 phone:w-8 phone:h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
 
-<!-- Burger Menu Icon for smaller screens -->
-<div id="burger-menu" class="phone:block tablet:hidden hidden">
-    <button id="burger-button" class="text-text focus:outline-none">
-        <svg class="w-6 h-6 phone:w-8 phone:h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-    </button>
-</div>
-
-    <!-- TODO: Add a burger menu for phone screens -->
     <div class="phone:hidden tablet:flex justify-end w-fit gap-x-2 nav-link text-text items-center">
         <div id="nav-links" class="flex items-center gap-x-2 transition-transform duration-500">
             <a href="/careers">КАРЬЕРА</a>
@@ -37,34 +33,79 @@ import InteractiveLogo from './InteractiveLogo.astro';
 
         <!-- CTA Link -->
         <a href="/#contact" class="nav-link bg-accent text-white rounded-full cta-link">
-            
             <p>СВЯЗАТЬСЯ</p>
             <img src={svgArrowIconReference.src} alt="move on the page arrow" class="w-5" loading="eager" />
         </a>
     </div>
 
+    <!-- Burger Menu Content -->
+    <div id="burger-menu-content" class="fixed inset-0 bg-main text-white transform translate-y-full transition-transform duration-500 z-40 flex flex-col justify-center items-center py-10 side-margins">
+        <!-- Close Button -->
+        <button class="close-button self-end m-4 text-white focus:outline-none">
+            <img src={svgCloseIcon.src} alt="Close" class="w-8 h-8 hover:rotate-180 transition-all duration-200"/>
+        </button>
+
+        <div class="flex flex-1 flex-col justify-center items-center gap-4 w-full h-auto nav-link">
+            <a href="/careers" class="header-3 mb-4 menu-link w-full text-left">КАРЬЕРА</a>
+            <a href="/online/talks" class="header-3 mb-4 menu-link w-full text-left">МЫ ОНЛАЙН</a>
+        </div>
+
+        <a href="#contact" class="bg-white py-[24px] px-[20px] text-text flex flex-row gap-4 rounded-full text-based-link burger-cta-link menu-link">
+            <p>Связаться</p>
+            <img src={svgArrowReference.src} alt="arrow" loading="eager"/>
+        </a>
+        
+    </div>
+
 </nav>
 
 <script>
-    let lastScrollTop = 0;
-    const navLinks = document.getElementById('nav-links');
+    document.addEventListener('DOMContentLoaded', () => {
+        let lastScrollTop = 0;
+        const navLinks = document.getElementById('nav-links');
+        const burgerButton = document.getElementById('burger-button');
+        const burgerMenuContent = document.getElementById('burger-menu-content');
+        const menuLinks = document.querySelectorAll('.menu-link');
+        const closeButton = document.querySelector('.close-button');
 
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        if (scrollTop > 300) {
-            if (scrollTop > lastScrollTop) {
-                // Downscroll
-                navLinks.style.transform = 'translateY(-400%)';
+            if (scrollTop > 300) {
+                if (scrollTop > lastScrollTop) {
+                    // Downscroll
+                    navLinks.style.transform = 'translateY(-400%)';
+                } else {
+                    // Upscroll
+                    navLinks.style.transform = 'translateY(0)';
+                }
             } else {
-                // Upscroll
                 navLinks.style.transform = 'translateY(0)';
             }
-        } else {
-            navLinks.style.transform = 'translateY(0)';
-        }
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        });
+
+        burgerButton.addEventListener('click', () => {
+            if (burgerMenuContent.classList.contains('translate-y-full')) {
+                burgerMenuContent.classList.remove('translate-y-full');
+                burgerMenuContent.classList.add('translate-y-0');
+            } else {
+                burgerMenuContent.classList.remove('translate-y-0');
+                burgerMenuContent.classList.add('translate-y-full');
+            }
+        });
+
+        const closeMenu = () => {
+            burgerMenuContent.classList.remove('translate-y-0');
+            burgerMenuContent.classList.add('translate-y-full');
+        };
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        closeButton.addEventListener('click', closeMenu);
     });
 </script>
 
@@ -119,11 +160,9 @@ import InteractiveLogo from './InteractiveLogo.astro';
         transition: transform 0.3s ease;
     }
 
-    /* FIXME: I do not like how this second arrow appears from the top */
     .cta-link::before {
         content: url("/icons/direct_arrow.svg");
         position: absolute;
-        left: 0px;
         left: 0px;
         top: 10px;
         transform: translate(-100%, 0%);
@@ -140,5 +179,83 @@ import InteractiveLogo from './InteractiveLogo.astro';
 
     .cta-link:hover::before {
         transform: translateX(10px);
+    }
+
+    #burger-menu-content a {
+        margin: 10px 0;
+        transition: color 0.3s ease;
+    }
+
+    /* burger-cta-link */
+    .burger-cta-link {
+        position: relative;
+        width: 60%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-center;
+        gap: 1rem;
+        overflow: hidden;
+        padding: 35px 100px;
+        transition: color 0.3s ease;
+    }
+
+    .burger-cta-link p {
+        position: absolute;
+        left: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .burger-cta-link img {
+        position: absolute;
+        right: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .burger-cta-link::before {
+        content: url("/icons/action-arrow.svg");
+        position: absolute;
+        left: -50px;
+        top: 24px;
+        transform: translate(-100%, 0%);
+        transition: transform 0.3s ease;
+    }
+
+    .burger-cta-link:hover p {
+        transform: translateX(50px);
+    }
+
+    .burger-cta-link:hover img {
+        transform: translateX(50px);
+    }
+
+    .burger-cta-link:hover:before {
+        transform: translate(60px, 0%);
+    }
+
+    .flex-1 {
+        flex: 1;
+    }
+
+    .nav-link a {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+    }
+
+    .nav-link a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: currentColor;
+        transition: width 0.3s ease;
+    }
+
+    .nav-link a:hover::after {
+        width: 100%;
     }
 </style>

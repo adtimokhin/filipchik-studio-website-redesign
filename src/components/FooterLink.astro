@@ -2,7 +2,7 @@
 const {text, dest} = Astro.props
 
 ---
-<a href={dest} target="_blank" class="w-full flex flex-row justify-center gap-x-4 group">
+<a href={dest} target="_blank" class="w-full flex flex-row justify-center items-center gap-x-4 group">
     <p class="body text-center contact-link"><span class="text group-hover:translate-y-full">{text}</span><span class="text-hover group-hover:translate-y-[110%]">{text}</span></p>
     <img src="/icons/arrow-up-right.svg" alt="arrow" height="20px" width="20px" class="w-8 group-hover:rotate-45 duration-300" loading="lazy" draggable="false"/>
 </a>
