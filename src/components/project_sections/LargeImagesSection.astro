@@ -10,7 +10,41 @@ const {image1Path, image2Path, image1Alt, image2Alt} = Astro.props
 
 <section class="w-full project-grid gap-in_element">
 
-    <Image src={image1Path} alt={image1Alt} width="1" height="300" class="desktop:col-span-2 tablet:col-span-3 phone:col-span-2 h-[300px] w-full" loading="lazy"/>
-    <Image src={image2Path} alt={image2Alt} width="1" height="300" class="desktop:col-span-3 tablet:col-span-3 phone:col-span-2 h-[300px] w-full" loading="lazy"/>
+    <Image src={image1Path} alt={image1Alt} width="1" height="300" class="desktop:col-span-2 tablet:col-span-3 phone:col-span-2 h-[300px] w-full image-skew" loading="lazy"/>
+    <Image src={image2Path} alt={image2Alt} width="1" height="300" class="desktop:col-span-3 tablet:col-span-3 phone:col-span-2 h-[300px] w-full image-skew" loading="lazy"/>
 
 </section>
+
+<style>
+    /* styles.css */
+    .image-skew {
+        transition: transform 0.3s ease-out;
+    }
+</style>
+
+<script>
+    // scripts.js
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.image-skew');
+
+    images.forEach(image => {
+        gsap.to(image, {
+            skewX: 2,
+            skewY:3,
+            rotateX:10,
+            scrollTrigger: {
+                trigger: image,
+                start: 'top center',
+                end: 'bottom center',
+                scrub: true,
+            }
+        });
+    });
+});
+
+</script>

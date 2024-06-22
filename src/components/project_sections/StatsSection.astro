@@ -32,25 +32,23 @@ const {stats} = Astro.props
         transform: translateY(0);
     }
 </style>
-
 <script>
     // scripts.js
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedEntries = document.querySelectorAll('.animated-entry');
+    document.addEventListener('DOMContentLoaded', () => {
+        const animatedEntries = document.querySelectorAll('.animated-entry');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, index * 200); // stagger animation by 200ms
-            }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 200); // stagger animation by 200ms
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animatedEntries.forEach(entry => {
+            observer.observe(entry);
         });
-    }, { threshold: 0.1 });
-
-    animatedEntries.forEach(entry => {
-        observer.observe(entry);
     });
-});
-
 </script>
