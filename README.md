@@ -2,17 +2,26 @@
 
 <img width="1920" alt="Preview Image" src="/public/images/seo_image.png">
 
-## Why I Decided to Do This Project
-
-*Space for your explanation here.*
-
-## Project Link
-
-[Filipchik Studios Website Redesign](http://yourprojectlink.com)
 
 ## Introduction
 
 This is my first project in Astro, and I followed my own design to create it. This project includes technologies such as Astro, React, Tailwind, and GSAP. Additionally, this is the first project I have done with GSAP animations.
+
+## Why I Decided to Do This Project
+
+I wanted to experiment with taking someones website and turning it into more visually appealing product. The goal was to leave the text as original as possible and update the text hierarchy, visuals, introduce more vibrant colors and animations to make the website pop out more.
+
+I found a website for [Filipchik Studios](https://filipchikstudios.com/), an agency that helps create virtual spaces and metaverses, which should be an interesting marketing strategy for many large companies.
+
+I thought that I can help this company out, by creating a responsive and modern website, which should grab attention of potential clients. I did not change the identity elements of this company. The colors, the font, the logo were all taken from the original website.
+
+I took a liberty to restructure the content of the website, removing some repretitive and irrelevant information.
+
+## Project Link
+Here is the final product:
+
+[Filipchik Studios Website Redesign](https://filipchik-studio-website-redesign.vercel.app/)
+
 
 ## 🚀 Project Structure
 
