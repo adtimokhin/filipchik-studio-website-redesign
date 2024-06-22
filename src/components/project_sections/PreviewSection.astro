@@ -15,12 +15,57 @@ const {title, summaryPoints, imagePath, imageAlt} = Astro.props
     </div>
     <div class="w-full side-margins absolute bottom-0 my-10 h-fit side-margins">
         <h1 class="header-2 text-background w-10/12">{title}</h1>
-        <hr class="border-t-1 text-background top-body-header">
-        <div class="w-full project-grid-no-padding text-background body text-left top-body-header gap-in_element">
+        <hr class="animated-line border-t-1 text-background top-body-header">
+        <div class="w-full project-grid-no-padding text-background body text-left top-body-header gap-in_element summary-container">
             <h2 class="header-4">ОПИСАНИЕ</h2>
-            <p class="desktop:col-start-3 tablet:col-start-2 phone:col-start-2">{summaryPoints[0]}</p>
-            <p class="desktop:col-start-4 tablet:col-start-3 phone:col-start-2">{summaryPoints[1]}</p>
-            <p class="desktop:col-start-5 tablet:col-start-2 phone:col-start-2">{summaryPoints[2]}</p>
+            <p class="desktop:col-start-3 tablet:col-start-2 phone:col-start-2 summary-point">{summaryPoints[0]}</p>
+            <p class="desktop:col-start-4 tablet:col-start-3 phone:col-start-2 summary-point">{summaryPoints[1]}</p>
+            <p class="desktop:col-start-5 tablet:col-start-2 phone:col-start-2 summary-point">{summaryPoints[2]}</p>
         </div>
     </div>
 </section>
+
+
+<style>
+    /* styles.css */
+.animated-line {
+    width: 0;
+    margin: 0 auto;
+    animation: expandLine 1s ease-out forwards;
+}
+
+.summary-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.summary-point {
+    position: relative;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 1s ease-out forwards;
+    animation-delay: 1s; /* Delay to ensure line animation completes first */
+}
+
+.summary-point:nth-child(2) {
+    animation-delay: 1.2s;
+}
+
+.summary-point:nth-child(3) {
+    animation-delay: 1.4s;
+}
+
+@keyframes expandLine {
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
