@@ -21,8 +21,8 @@ import svgCloseIcon from '../../public/icons/close.svg'; // Assuming you have a 
         </button>
     </div>
 
-    <div class="phone:hidden tablet:flex justify-end w-fit gap-x-2 nav-link text-text items-center">
-        <div id="nav-links" class="flex items-center gap-x-2 transition-transform duration-500">
+    <div class="phone:hidden tablet:flex justify-end w-fit gap-x-2 text-text items-center">
+        <div id="nav-links" class="flex items-center gap-x-2 transition-transform duration-500 nav-link">
             <a href="/careers">КАРЬЕРА</a>
             <!-- Dot -->
             <span class="h-[5px] w-[5px] rounded-full bg-text"/>
@@ -32,7 +32,7 @@ import svgCloseIcon from '../../public/icons/close.svg'; // Assuming you have a 
         </div>
 
         <!-- CTA Link -->
-        <a href="/#contact" class="nav-link bg-accent text-white rounded-full cta-link">
+        <a href="/#contact" class=" bg-accent text-white rounded-full cta-link">
             <p>СВЯЗАТЬСЯ</p>
             <img src={svgArrowIconReference.src} alt="move on the page arrow" class="w-5" loading="eager" />
         </a>
@@ -146,17 +146,21 @@ import svgCloseIcon from '../../public/icons/close.svg'; // Assuming you have a 
         overflow: hidden;
         padding: 20px 30px;
         transition: color 0.3s ease;
+        
     }
 
     .cta-link p {
         position: absolute;
         left: 10px;
+        top: 10px;
         transition: transform 0.3s ease;
+        color: white;
     }
 
     .cta-link img {
         position: absolute;
         right: 10px;
+        top: 10px;
         transition: transform 0.3s ease;
     }
 
