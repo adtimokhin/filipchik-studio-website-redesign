@@ -76,7 +76,10 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 				</div>
 			</section> -->
 			
-			<section class="w-screen h-fit side-margins desktop:rounded-t-[63px] tablet:rounded-t-[40px] phone:rounded-t-[34px] bg-main text-white flex flex-col page_tilte-content gap-page_tilte-content">
+			<div class="w-screen h-fit">
+
+			
+			<section class="w-screen h-fit side-margins bg-main text-white flex flex-col page_tilte-content gap-page_tilte-content">
 				<h2 class="header-2 desktop:col-span-2 tablet:col-span-1 phone:col-span-2 h-fit w-full">МЫ ОНЛАЙН</h2>
 				<ul class="w-full gap-in_element flex flex-col">
 					<WeOnlineListItem title="ВИРТУАЛЬНАЯ ЖОПА" subText="НАШ ПОДКАСТ" linkDest="https://virtualnaya-zhopa.mave.digital/"/>
@@ -94,14 +97,15 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 				</div>
 				
 			</section>
+
 			<section class="w-screen h-fit side-margins bg-accent text-white page_tilte-content" id="contact">
 				<h2 class="header-2 desktop:col-span-2 tablet:col-span-1 phone:col-span-2 h-fit w-full text-center">СВЯЖИТЕСЬ С НАМИ!</h2>
 				<!-- Contact Form -->
 				<Form client:load/>
 			</section>
 		</div>
-
 		</div>
+
 	</main>
 </MainLayout>
 
@@ -249,6 +253,7 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 	mm.add("(min-width: 768px)", ()=>{
 		gsap.to("#whaaat_section",{
 			width:"65%",
+			ease: "power2.out",
 			scrollTrigger:{
 				trigger: "#whaaat_section",
 				start: "top center",
