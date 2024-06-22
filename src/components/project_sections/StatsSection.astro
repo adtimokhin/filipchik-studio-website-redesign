@@ -10,10 +10,47 @@ const {stats} = Astro.props
 ---
 
 <section class="w-full h-fit project-grid text-text items-center gap-in_element body">
-    <p class="text-accent header-2">{stats[0].header}</p>
-    <p class="tablet:col-span-2 phone:col-span-1 h-fit">{stats[0].description}</p>
-    <p class="text-accent header-2 desktop:col-start-3">{stats[1].header}</p>
-    <p class="tablet:col-span-2 phone:col-span-1  h-fit">{stats[1].description}</p>
-    <p class="text-accent header-2">{stats[2].header}</p>
-    <p class="tablet:col-span-2 phone:col-span-1 h-fit">{stats[2].description}</p>
+    <p class="text-accent header-2 animated-entry">{stats[0].header}</p>
+    <p class="tablet:col-span-2 phone:col-span-1 h-fit animated-entry">{stats[0].description}</p>
+    <p class="text-accent header-2 desktop:col-start-3 animated-entry">{stats[1].header}</p>
+    <p class="tablet:col-span-2 phone:col-span-1 h-fit animated-entry">{stats[1].description}</p>
+    <p class="text-accent header-2 animated-entry">{stats[2].header}</p>
+    <p class="tablet:col-span-2 phone:col-span-1 h-fit animated-entry">{stats[2].description}</p>
 </section>
+
+
+<style>
+    /* styles.css */
+    .animated-entry {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .animated-entry.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    // scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedEntries = document.querySelectorAll('.animated-entry');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 200); // stagger animation by 200ms
+            }
+        });
+    }, { threshold: 0.1 });
+
+    animatedEntries.forEach(entry => {
+        observer.observe(entry);
+    });
+});
+
+</script>
