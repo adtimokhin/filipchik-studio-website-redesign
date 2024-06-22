@@ -24,7 +24,7 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 
 		<div class="w-full flex flex-col justify-center items-center gap-sections top-sections">
 			<!-- Whaaaat Section -->
-			<section class="w-full bg-main h-fit flex flex-col justify-center items-center text-white action-items gap-page_tilte-content">
+			<section class="w-full bg-main h-fit flex flex-col justify-center items-center text-white action-items gap-page_tilte-content" id="whaaat_section">
 				<h2 class="desktop:text-[9.75rem] tablet:text-[8rem] phone:text-[4rem] w-full text-center">ЧТООО?</h2>
 				<p class="body text-center px-10">
 					МЫ СОЗДАЕМ СЦЕНЫ И ОБЪЕКТЫ ДЛЯ МЕТАВСЕЛЕННОЙ META, КОТОРЫЕ КОМПАНИИ МОГУТ ИСПОЛЬЗОВАТЬ В СВОИХ ЧАСТНЫХ ПРОЕКТАХ. НАШИ МЕТАОБЪЕКТЫ ПОМОГАЮТ ГЕНЕРИРОВАТЬ ДОХОДЫ ОТ РЕКЛАМЫ И УЛУЧШАЮТ ВЗАИМОДЕЙСТВИЕ С ПОЛЬЗОВАТЕЛЯМИ.
@@ -50,20 +50,32 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 				</h2>
 			</section>
 
-			<section>
-				<h2 class="w-full text-center section-title">МЫ ЭТО:</h2>
-
-				<div>
-					Here we will put the "WORDS"
-					<!-- TODO: Add this -->
+			<!-- OUR STRONG SIDES section. Currently I decided not to implement it. -->
+			<!-- <section class="interactive-section relative h-[100vh] overflow-hidden flex flex-col justify-between" id="scrollable_section">
+				<h2 class="w-full text-center section-title h-fit">МЫ ЭТО:</h2>
+				<div class=" w-full h-full large-text flex flex-col justify-center overflow-visible" id="scrollables">
+					<span class="flex flex-row w-full justify-center gap-8 items-center -rotate-12 skew-x-12 scrolling-spans top-line">
+						<p>РЕШЕНИЕ</p>
+						<span class="h-[20px] w-[20px] rounded-full bg-text"></span>
+						<p>КАЧЕСТВО</p>
+					</span>
+					<span class="flex flex-row w-full justify-center items-center gap-8 -rotate-12 skew-x-12 scrolling-spans bottom-line">
+						<p>СКОРОСТЬ</p>
+						<span class="h-[20px] w-[20px] rounded-full bg-text"></span>
+						<p>РЕЗУЛЬТАТ</p>
+					</span>
 				</div>
-
-				<div class="body project-grid-no-padding text-text">
-					<p class="desktop:col-span-2 desktop:col-start-4 tablet:col-span-2 tablet:col-start-1 phone:col-span-2 phone:col-start-1">Во всём, что мы делаем, человек стоит на первом месте. Поэтому нам удалось собрать команду профессионалов со всего мира. Наши техники создают сложные игровые механики, а визуальный креатив собирает лучшие отзывы на рынке.</p>
+			
+				<div class="body project-grid-no-padding text-text changing-text h-fit">
+					<div class="desktop:col-span-2 desktop:col-start-4 tablet:col-span-2 tablet:col-start-1 phone:col-span-2 phone:col-start-1 flex flex-row flex-wrap overflow-x-hidden gap-4 h-[500px]">
+						<p id="changing-text-1" class="w-full">Во всём, что мы делаем, человек стоит на первом месте. Поэтому нам удалось собрать команду профессионалов со всего мира. Наши техники создают сложные игровые механики, а визуальный креатив собирает лучшие отзывы на рынке.</p>
+						<p id="changing-text-2" class="w-full">Создание мира от А до Я. Мы полагаемся на спецов из 8 индустрий. Они создают ваш мир с нуля: от деконструкции целей, через лепку пространства, к сбору аналитики и техподдержке. Плюс мы позовём наших партнёров, чтобы они решили ваши задачи за рамками меты.</p>
+						<p id="changing-text-3" class="w-full">Во всём, что мы делаем, человек стоит на первом месте. Поэтому нам удалось собрать команду профессионалов со всего мира. Наши техники создают сложные игровые механики, а визуальный креатив собирает лучшие отзывы на рынке.</p>
+						<p id="changing-text-4" class="w-full">Создание мира от А до Я. Мы полагаемся на спецов из 8 индустрий. Они создают ваш мир с нуля: от деконструкции целей, через лепку пространства, к сбору аналитики и техподдержке. Плюс мы позовём наших партнёров, чтобы они решили ваши задачи за рамками меты.</p>
+					</div>
 				</div>
-			</section>
-
-			<div>
+			</section> -->
+			
 			<section class="w-screen h-fit side-margins desktop:rounded-t-[63px] tablet:rounded-t-[40px] phone:rounded-t-[34px] bg-main text-white flex flex-col page_tilte-content gap-page_tilte-content">
 				<h2 class="header-2 desktop:col-span-2 tablet:col-span-1 phone:col-span-2 h-fit w-full">МЫ ОНЛАЙН</h2>
 				<ul class="w-full gap-in_element flex flex-col">
@@ -76,7 +88,7 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 
 			    <div class="project-grid-no-padding">
 					<a href="/online/talks" class="bg-white desktop:col-start-4 desktop:col-span-2 tablet:col-start-2 tablet:col-span-2 phone:col-start-1 phone:col-span-2 py-[24px] px-[20px] text-text flex flex-row rounded-full justify-between cta-link">
-						<p class="text-based-link">Огласить весь список? пожалуйста!</p>
+						<p class="text-based-link">Огласить весь список? Пожалуйста!</p>
 						<img src={svgArrowReference.src} alt="arrow" loading="lazy"/>
 					</a>
 				</div>
@@ -99,11 +111,6 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
         width: 100%;
         transition: width 0.5s ease;
     }
-
-    .action-items.shrink {
-		@apply phone:w-[100%] tablet:w-[60%] desktop:w-[60%]
-    }
-
 
     .cta-link {
         position: relative;
@@ -205,46 +212,77 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 .animated-title.animated .bottom-word {
     transform: translateY(0);
 }
+
+.interactive-section {
+    position: relative;
+    height: 100vh; /* Adjust height as needed */
+    overflow: hidden;
+}
+
+
+.changing-text {
+    transition: opacity 1s ease;
+}
+
+
+.changing-text p {
+    flex: 1 0 100%; /* Ensure each text block takes at least the full width */
+    white-space: normal; /* Allow text to wrap */
+}
 </style>
 
+
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const section = document.querySelector('.action-items');
-
-        function handleScroll() {
-            const rect = section.getBoundingClientRect();
-            const fullyVisible = (rect.top >= 0) && (rect.bottom <= window.innerHeight);
-
-            if (fullyVisible) {
-                section.classList.add('shrink');
-                window.removeEventListener('scroll', handleScroll);
-                window.removeEventListener('resize', handleScroll);
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('resize', handleScroll);
-        handleScroll(); // Initial check on page load
-    });
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+	
+	// GSAP config
+	gsap.registerPlugin(ScrollTrigger);
 
 
-	document.addEventListener('DOMContentLoaded', () => {
-    const highlight = document.querySelector('.highlight');
-    const blob = document.querySelector<HTMLDivElement>('.blob');
+	// ************************************
+	// GSAP Animations
+	// ************************************
 
-    function positionBlob() {
-      const rect = highlight.getBoundingClientRect();
-      const heroRect = document.querySelector('.hero').getBoundingClientRect();
+	// GSAP Animation for the WHaaaaat? Section
+	const mm = gsap.matchMedia();
+	mm.add("(min-width: 768px)", ()=>{
+		gsap.to("#whaaat_section",{
+			width:"65%",
+			scrollTrigger:{
+				trigger: "#whaaat_section",
+				start: "top center",
+				end: "center center",
+				anticipatePin: 1,
+				scrub: true,
+			}
+		})
+	});
 
-      blob.style.top = `${rect.top - heroRect.top + rect.height / 2}px`;
-      blob.style.left = `${rect.left - heroRect.left + rect.width / 2}px`;
-    }
 
-    positionBlob();
-    window.addEventListener('resize', positionBlob);
-  	});
+	// ************************************
+	// Animation event listeners
+	// ************************************
 
-	// scripts.js
+	// Blob around the word META at the hero text.
+	// Currently not implemented
+	// document.addEventListener('DOMContentLoaded', () => {
+    // const highlight = document.querySelector('.highlight');
+    // const blob = document.querySelector<HTMLDivElement>('.blob');
+
+    // function positionBlob() {
+    //   const rect = highlight.getBoundingClientRect();
+    //   const heroRect = document.querySelector('.hero').getBoundingClientRect();
+
+    //   blob.style.top = `${rect.top - heroRect.top + rect.height / 2}px`;
+    //   blob.style.left = `${rect.left - heroRect.left + rect.width / 2}px`;
+    // }
+
+    // positionBlob();
+    // window.addEventListener('resize', positionBlob);
+  	// });
+
+	// Hero Section Line expanding animation followed by the text drop down.
 	document.addEventListener('DOMContentLoaded', () => {
 		const line = document.querySelector('.hero-section .line');
 		const animatedText = document.querySelector('.hero-section .animated-text');
@@ -257,24 +295,96 @@ import svgArrowReference from '../../public/icons/action-arrow.svg';
 			animatedText.classList.add('visible');
 		});
 	});
-// scripts.js
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedTitle = document.querySelector('.animated-title');
 
-    const observerOptions = {
-        threshold: 0.8
-    };
+	// Our Projects Section. Title sliding animation
+	document.addEventListener('DOMContentLoaded', () => {
+		const animatedTitle = document.querySelector('.animated-title');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animatedTitle.classList.add('animated');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
+		const observerOptions = {
+			threshold: 0.8
+		};
 
-    observer.observe(animatedTitle);
-});
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					animatedTitle.classList.add('animated');
+					observer.unobserve(entry.target);
+				}
+			});
+		}, observerOptions);
+
+		observer.observe(animatedTitle);
+	});
+
+
+// Attempts to make GSAP animation for the "Our Strong Sides" section.
+// Did not go too well. For now, I decided not to implement this section at all.
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+// 	const topLine = document.querySelector('.top-line');
+// 	const bottomLine = document.querySelector('.bottom-line');
+// 	const topWords = topLine.querySelectorAll('p');
+// 	const bottomWords = bottomLine.querySelectorAll('p');
+
+// 	const tl = gsap.timeline({
+// 		scrollTrigger: {
+// 			trigger: ".interactive-section",
+// 			start: "top top",
+// 			end: "+=400",
+// 			scrub: true,
+// 			pin: true,
+// 			anticipatePin: 1,
+// 			markers: true
+// 		}
+// 	});
+
+// 	tl	.from(topLine, { xPercent: 100, yPercent: -100, duration: 2, ease: 'power2.inOut' })
+// 		.from(bottomLine, { xPercent: -100, yPercent: 100, duration: 2, ease: 'power2.inOut' }, 0)
+// 		.to(topWords[0], { color: 'blue', duration: 0.5 }, "0.5") // Change the first word color while moving
+// 		.to(topWords[1], { color: 'red', duration: 0.5 }, "1") // Change the second word color while moving
+// 		.to(bottomWords[0], { color: 'green', duration: 0.5 }, "1.5") // Change the third word color while moving
+// 		.to(bottomWords[1], { color: 'purple', duration: 0.5 }, "2"); // Change the fourth word color while moving
+// });
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const topLine = document.querySelector('.top-line');
+//     const bottomLine = document.querySelector('.bottom-line');
+//     const topWords = topLine.querySelectorAll('p');
+//     const bottomWords = bottomLine.querySelectorAll('p');
+//     const texts = document.querySelectorAll('.changing-text p');
+
+//     const tl = gsap.timeline({
+//         scrollTrigger: {
+//             trigger: ".interactive-section",
+//             start: "top top",
+//             end: "+=1000",
+//             scrub: true,
+//             pin: true,
+//             anticipatePin: 1,
+//             markers: true
+//         }
+//     });
+
+//     tl.from(topLine, { xPercent: 100, yPercent: -100, duration: 2, ease: 'power2.inOut' })
+//       .from(bottomLine, { xPercent: -100, yPercent: 100, duration: 2, ease: 'power2.inOut' }, 0)
+//       .to(topWords[0], { color: 'blue', duration: 0.5 }, "0.4")
+//       .to(topWords[1], { color: 'red', duration: 0.5 }, "1.1")
+//       .to(bottomWords[0], { color: 'green', duration: 0.5 }, "1.6")
+//       .to(bottomWords[1], { color: 'purple', duration: 0.5 }, "2.1");
+
+// 	  tl.to(texts[0], { y: '-100%', opacity: 0, duration: 0.5 }, "0.5")
+//       .to(texts[1], { y: '-100%', duration: 0.5 }, "0.5")
+//       .to(texts[1], { y: '-200%', opacity: 0, duration: 0.5 }, "1.1")
+//       .to(texts[2], { y: '-200%', duration: 0.5 }, "1.1")
+//       .to(texts[2], { y: '-300%', opacity: 0, duration: 0.5 }, "1.7")
+//       .to(texts[3], { y: '-300%', duration: 0.5 }, "1.7")
+//       .to(texts[3], { y: '-400%', opacity: 0, duration: 0.5 }, "2.3");
+
+// });
+
 
 </script>
